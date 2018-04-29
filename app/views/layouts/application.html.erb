@@ -8,33 +8,61 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<p>
+<body>
 
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">Logo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if (user_signed_in?) && (!current_user.admin?) %>
+        <li><a href="/">Domov</a></li>
+        <li><a href="/">Známky</a></li>
+        <li><a href="/">Absencie</a></li>
+      <% end %>
+      <% if (user_signed_in?) && (current_user.admin?) %>
+        <li><a href="/">Domov</a></li>
+        <li><a href="/">Zapis známky</a></li>
+        <li><a href="/">Zapis absencie</a></li>
+        <li>
+      <% end %>
+
+      <% if (user_signed_in?) %>
+        <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+      <% else %>
+        <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %></li>
+        <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link' %></li>
+      <% end %>
+      <% if (user_signed_in?) %>
+        Prihlaseny ako
+        <% if current_user.admin? %>
+          ucitel
+        <% else %>
+          ziak
+        <% end %>
+        <strong><%= current_user.email %></strong>.
+      <% end %>
+    </ul>
+  </div>
+</nav>
 
 <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
+  <blockquote>
+    <p class="alert alert-danger"><%= notice %></p>
+  </blockquote>
 <% end %>
 <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
+  <blockquote>
+    <p class="alert alert-danger"><%= alert %></p>
+  </blockquote>
 <% end %>
-<p class="navbar-text pull-right">
-  <% if user_signed_in? %>
-  <div class="sidenav">
-    <a href="#">Home</a>
-    <a href="#">Znamky Ziaka</a>
-    <a href="#">Absencie Ziaka</a>
-  </div>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
-  <div class="main">
-    <%= yield %>
-  </div>
-<% end %>
-</p>
+
+<div class="main">
+
+  <%= yield %>
+</div>
+
 
 </body>
 </html>
+

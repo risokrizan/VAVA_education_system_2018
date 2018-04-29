@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180428200722) do
+ActiveRecord::Schema.define(version: 20180429115032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20180428200722) do
     t.date "when"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "students_id"
+    t.index ["students_id"], name: "index_absences_on_students_id"
   end
 
   create_table "classes", force: :cascade do |t|
@@ -31,6 +33,10 @@ ActiveRecord::Schema.define(version: 20180428200722) do
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "students_id"
+    t.bigint "subjects_id"
+    t.index ["students_id"], name: "index_grades_on_students_id"
+    t.index ["subjects_id"], name: "index_grades_on_subjects_id"
   end
 
   create_table "homes", force: :cascade do |t|
@@ -43,11 +49,17 @@ ActiveRecord::Schema.define(version: 20180428200722) do
     t.date "birth_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "classes_id"
+    t.index ["classes_id"], name: "index_students_on_classes_id"
   end
 
   create_table "subject_students", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "subjects_id"
+    t.bigint "students_id"
+    t.index ["students_id"], name: "index_subject_students_on_students_id"
+    t.index ["subjects_id"], name: "index_subject_students_on_subjects_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -61,11 +73,19 @@ ActiveRecord::Schema.define(version: 20180428200722) do
   create_table "teacher_classes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "teachers_id"
+    t.bigint "classes_id"
+    t.index ["classes_id"], name: "index_teacher_classes_on_classes_id"
+    t.index ["teachers_id"], name: "index_teacher_classes_on_teachers_id"
   end
 
   create_table "teacher_subjects", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "teachers_id"
+    t.bigint "subjects_id"
+    t.index ["subjects_id"], name: "index_teacher_subjects_on_subjects_id"
+    t.index ["teachers_id"], name: "index_teacher_subjects_on_teachers_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -89,8 +109,19 @@ ActiveRecord::Schema.define(version: 20180428200722) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "absences", "students", column: "students_id"
+  add_foreign_key "grades", "students", column: "students_id"
+  add_foreign_key "grades", "subjects", column: "subjects_id"
+  add_foreign_key "students", "classes", column: "classes_id"
+  add_foreign_key "subject_students", "students", column: "students_id"
+  add_foreign_key "subject_students", "subjects", column: "subjects_id"
+  add_foreign_key "teacher_classes", "classes", column: "classes_id"
+  add_foreign_key "teacher_classes", "teachers", column: "teachers_id"
+  add_foreign_key "teacher_subjects", "subjects", column: "subjects_id"
+  add_foreign_key "teacher_subjects", "teachers", column: "teachers_id"
 end

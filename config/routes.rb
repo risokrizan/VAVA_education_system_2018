@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
 
   root to: 'homes_#index'
-
+  get "znamky/:stud_id", to: "students#show_all_grades"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

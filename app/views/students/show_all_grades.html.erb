@@ -1,0 +1,22 @@
+<h3 class="center-align">Výpis známok <b><%= Student.find(params[:stud_id].to_i).name %></b>: </h3>
+<table>
+  <thead>
+  <tr>
+    <th>Predmet</th>
+    <th>Známka</th>
+    <th>Získaná</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @vysledok.each do |znamky| %>
+    <tr>
+      <td><%= znamky.fetch('predmet') %></td>
+      <td><%= znamky.fetch('znamka') %></td>
+      <td><%= znamky.fetch('datum') %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="vava_2018@localhost" uuid="feb9a1bb-ab12-42ca-a5b2-e0ae323209ad">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/vava_2018</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails VAVA_education_system_2018: test" uuid="c304d928-3ae6-473d-b1d6-9f06d200a684">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:VAVA_education_system_2018_test</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails VAVA_education_system_2018: development" uuid="af86e172-10bf-43b6-8ab8-4afad201a837">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/vava_2018</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails VAVA_education_system_2018: production" uuid="875a439d-cd81-4f21-8088-6244d0949c6c">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:VAVA_education_system_2018_production</jdbc-url>
+    </data-source>
+  </component>
+</project>
