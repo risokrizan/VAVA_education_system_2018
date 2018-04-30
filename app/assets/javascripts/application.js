@@ -15,3 +15,6 @@
 //= require_tree .
 //= require materialize
 
+//= require jquery3
+//= require popper
+//= require bootstrap

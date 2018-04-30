@@ -10,8 +10,51 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
-@import "materialize";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "bootstrap";
+
+.bg-red {
+  color: white;
+  background-color: #ee6e73;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.btn-red {
+  color: white;
+  background-color: #ee6e73;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.wrapper-center {
+  margin: 0 auto;
+}
+
+.nav-link, .navbar-text {
+  color: white !important;
+}
+
+.vertical-separator {
+  border-left:1px solid #fff;
+  height:100%;
+  margin: 0 20px;
+}
+
+.nav-item {
+  transition: 0.3s ease;
+  color: #ffffff;
+  text-decoration: none;
+  border-top: 4px solid #ee6e73;
+  border-bottom: 4px solid #ee6e73;
+  padding: 0;
+}
+
+.nav-item:hover {
+  border-top: 4px solid #ffffff;
+  border-bottom: 4px solid #ffffff;
+  padding: 0;
+}

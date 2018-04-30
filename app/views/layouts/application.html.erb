@@ -1,68 +1,84 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>VAVAEducationSystem2018</title>
-  <%= csrf_meta_tags %>
+  <head>
+    <title>VAVAEducationSystem2018</title>
+    <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-<body>
+  <body>
+    <!-- NAVBAR START -->
 
-<nav>
-  <div class="nav-wrapper">
-    <a href="/" class="brand-logo">Logo</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <% if (user_signed_in?) && (!current_user.admin?) %>
-        <li><a href="/">Domov</a></li>
-        <li><a href="/">Známky</a></li>
-        <li><a href="/">Absencie</a></li>
-      <% end %>
-      <% if (user_signed_in?) && (current_user.admin?) %>
-        <li><a href="/">Domov</a></li>
-        <li><a href="/">Zapis známky</a></li>
-        <li><a href="/">Zapis absencie</a></li>
-        <li>
-      <% end %>
-
-      <% if (user_signed_in?) %>
-        <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
-      <% else %>
-        <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %></li>
-        <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link' %></li>
-      <% end %>
-      <% if (user_signed_in?) %>
-        Prihlaseny ako
-        <% if current_user.admin? %>
-          ucitel
-        <% else %>
-          ziak
+    <nav class="navbar navbar-expand-lg navbar-dark bg-red shadow stroke">
+      <a class="navbar-brand" href="#">Logo</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Domov</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Známky</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">Absencie</a>
+          </li>
+          <% if (user_signed_in?) && (!current_user.admin?) %>
+          <% end %>
+          <% if (user_signed_in?) && (current_user.admin?) %>
+            <li class="nav-item"><a class="nav-link" href="/">Domov</a></li>
+            <li class="nav-item"><a class="nav-link" href="/">Zapis známky</a></li>
+            <li class="nav-item"><a class="nav-link" href="/">Zapis absencie</a></li>
+          <% end %>
+        </ul>
+        <ul class="navbar-nav">
+          <% if (user_signed_in?) %>
+            <li class="nav-item"><%= link_to 'Upraviť profil', edit_user_registration_path, :class => 'nav-link' %></li>
+            <li class="nav-item"><%= link_to "Odhlásiť sa", destroy_user_session_path, method: :delete, :class => 'nav-link' %></li>
+          <% else %>
+            <li class="nav-item"><%= link_to "Registrácia", new_user_registration_path, :class => 'nav-link' %></li>
+            <li class="nav-item"><%= link_to "Prihlásenie", new_user_session_path, :class => 'nav-link' %></li>
+          <% end %>
+          <% if (user_signed_in?) %>
+            <li><div class="vertical-separator"></div></li>
+          <% end %>
+        </ul>
+        <% if (user_signed_in?) %>
+        <span class="navbar-text">
+          Prihlásený ako:
+          <% if current_user.admin? %>
+            učiteľ
+          <% else %>
+            žiak
+          <% end %>
+          <strong><%= current_user.email %></strong>.
+        </span>
         <% end %>
-        <strong><%= current_user.email %></strong>.
-      <% end %>
-    </ul>
-  </div>
-</nav>
+      </div>
+    </nav>
 
-<% if notice %>
-  <blockquote>
-    <p class="alert alert-danger"><%= notice %></p>
-  </blockquote>
-<% end %>
-<% if alert %>
-  <blockquote>
-    <p class="alert alert-danger"><%= alert %></p>
-  </blockquote>
-<% end %>
+    <!-- NAVBAR END-->
 
-<div class="main">
+    <% if notice %>
+      <blockquote>
+        <p class="alert alert-danger"><%= notice %></p>
+      </blockquote>
+    <% end %>
+    <% if alert %>
+      <blockquote>
+        <p class="alert alert-danger"><%= alert %></p>
+      </blockquote>
+    <% end %>
 
-  <%= yield %>
-</div>
+    <div class="main container">
+      <%= yield %>
+    </div>
 
 
-</body>
+  </body>
 </html>
 
