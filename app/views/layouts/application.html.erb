@@ -18,6 +18,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+          <% if (student_signed_in?)  %>
           <li class="nav-item">
             <a class="nav-link" href="/">Domov</a>
           </li>
@@ -27,37 +28,44 @@
           <li class="nav-item">
             <a class="nav-link" href="/">Absencie</a>
           </li>
-          <% if (user_signed_in?) && (!current_user.admin?) %>
           <% end %>
-          <% if (user_signed_in?) && (current_user.admin?) %>
+          <% if (teacher_signed_in?)  %>
             <li class="nav-item"><a class="nav-link" href="/">Domov</a></li>
             <li class="nav-item"><a class="nav-link" href="/">Zapis známky</a></li>
             <li class="nav-item"><a class="nav-link" href="/">Zapis absencie</a></li>
           <% end %>
         </ul>
         <ul class="navbar-nav">
-          <% if (user_signed_in?) %>
-            <li class="nav-item"><%= link_to 'Upraviť profil', edit_user_registration_path, :class => 'nav-link' %></li>
-            <li class="nav-item"><%= link_to "Odhlásiť sa", destroy_user_session_path, method: :delete, :class => 'nav-link' %></li>
-          <% else %>
-            <li class="nav-item"><%= link_to "Registrácia", new_user_registration_path, :class => 'nav-link' %></li>
-            <li class="nav-item"><%= link_to "Prihlásenie", new_user_session_path, :class => 'nav-link' %></li>
+          <% if student_signed_in? %>
+            <li class="nav-item"><%= link_to 'Upraviť profil', edit_student_registration_path, :class => 'nav-link' %></li>
+            <li class="nav-item"><%= link_to "Odhlásiť sa", destroy_student_session_path, method: :delete, :class => 'nav-link' %></li>
           <% end %>
-          <% if (user_signed_in?) %>
+          <% if !((student_signed_in?) || (teacher_signed_in?)) %>
+            <li class="nav-item"><%= link_to "Registrácia", new_student_registration_path, :class => 'nav-link' %></li>
+            <li class="nav-item"><%= link_to "Prihlásenie", new_student_session_path, :class => 'nav-link' %></li>
+          <% end %>
+          <% if teacher_signed_in? %>
+            <li class="nav-item"><%= link_to 'Upraviť profil', edit_teacher_registration_path, :class => 'nav-link' %></li>
+            <li class="nav-item"><%= link_to "Odhlásiť sa", destroy_teacher_session_path, method: :delete, :class => 'nav-link' %></li>
+          <% end %>
+          <% if (student_signed_in?) || (teacher_signed_in?) %>
             <li><div class="vertical-separator"></div></li>
           <% end %>
         </ul>
-        <% if (user_signed_in?) %>
         <span class="navbar-text">
-          Prihlásený ako:
-          <% if current_user.admin? %>
+
+          <% if teacher_signed_in? %>
+            Prihlásený ako:
             učiteľ
-          <% else %>
-            žiak
+             <strong><%= current_teacher.email %></strong>.
           <% end %>
-          <strong><%= current_user.email %></strong>.
+          <% if student_signed_in? %>
+            Prihlásený ako:
+            žiak
+             <strong><%= current_student.email %></strong>.
+          <% end %>
+
         </span>
-        <% end %>
       </div>
     </nav>
 

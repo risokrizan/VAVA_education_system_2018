@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :teachers
+  devise_for :students
   resources :homes
-  devise_for :users
   resources :absences
   resources :grades
   resources :classes

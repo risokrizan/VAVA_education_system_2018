@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-
+  before_action :authenticate_student!,only: [ :show_all_grades]
   def show_all_grades
     id_ziaka = params[:stud_id]
     @vysledok = ActiveRecord::Base.connection.execute("
