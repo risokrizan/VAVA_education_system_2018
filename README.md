@@ -1,24 +1,10 @@
-# README
+#todo 
+Plan na zajtra:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+*pre ziaka: meno datum narodenia
+*pre ucitela: meno datum narodenie pocet_kreditov_vyucby
+http://www.peoplecancode.com/tutorials/adding-custom-fields-to-devise
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Plan na pozajtra:
+*zápis známky
+*zápis absencie
