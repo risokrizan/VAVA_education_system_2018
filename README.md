@@ -1,10 +1,10 @@
-#todo 
-###Plan na zajtra:
+# todo 
+### Plan na zajtra:
 
 * pre ziaka: meno datum narodenia
 * pre ucitela: meno datum narodenie pocet_kreditov_vyucby
-http://www.peoplecancode.com/tutorials/adding-custom-fields-to-devise
+[link co treba urobit!](http://www.peoplecancode.com/tutorials/adding-custom-fields-to-devise)
 
-###Plan na pozajtra:
+### Plan na pozajtra:
 * zápis známky
 * zápis absencie
