@@ -1,4 +1,8 @@
+<% if @grades == NIL %>
+  <h3 class="alert alert-danger">Permission Denied: pristupujete ku známkam iného žiaka.</h3>
+<% else %>
 <h3 class="center-align">Výpis známok <b><%= Student.find(params[:stud_id].to_i).name %></b>: </h3>
+
 <table>
   <thead>
   <tr>
@@ -10,7 +14,7 @@
   </thead>
 
   <tbody>
-  <% @vysledok.each do |znamky| %>
+  <% @grades.each do |znamky| %>
     <tr>
       <td><%= znamky.fetch('predmet') %></td>
       <td><%= znamky.fetch('znamka') %></td>
@@ -19,4 +23,4 @@
   <% end %>
   </tbody>
 </table>
-
+<% end %>
