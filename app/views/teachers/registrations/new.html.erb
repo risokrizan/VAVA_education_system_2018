@@ -1,50 +1,29 @@
 <h2 class="text-center display-4">Registrovať sa ako učiteľ</h2>
 
-<div class="wrapper-center w-75">
+<div class="wrapper-center w-50">
   <hr>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="form-group">
-      <%= f.label :Email %><br/>
+      <%= f.label :Email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => 'form-control' %>
     </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
-
     <div class="form-group">
-      <%= f.label :Heslo %> <i>(zanechajte prázdne, ak nechcete heslo zmeniť)</i><br/>
+      <%= f.label :Heslo %>
       <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %>
       <% if @minimum_password_length %>
-        <small id="emailHelp" class="form-text text-muted">Minimálne <%= @minimum_password_length %> znakov</small>
+        <small class="form-text text-muted">Minimálne <%= @minimum_password_length %> znakov</small>
       <% end %>
     </div>
 
     <div class="form-group">
-      <%= f.label :Potvrdenie_hesla %><br/>
+      <%= f.label :Potvrdenie_hesla %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control' %>
     </div>
 
-    <div class="form-group">
-      <%= f.label :Súčasné_heslo %> <i>(potrebujeme vaše súčasné heslo na potvrdenie zmien)</i><br/>
-      <%= f.password_field :current_password, autocomplete: "off", :class => 'form-control' %>
-    </div>
-
-    <div class="actions">
-      <%= link_to "Naspäť", :back, :class => 'btn btn-outline-secondary btn-lg' %>
-      <%= f.submit "Zmeniť", :class => 'btn btn-red btn-lg' %>
-      <%- if controller_name != 'sessions' %>
-        <small class="form-text text-muted"><%= link_to "Ste už registrovaný? Prihláste sa!", new_session_path(resource_name) %>
-          <br/></small>
-      <% end -%>
-    </div>
-    <hr>
+    <%= f.submit "Registrovať sa", :class => 'btn btn-red btn-lg' %>
+    <small class="form-text text-muted">Ste už registrovaný? Prihláste sa!<%= render "devise/shared/links" %></small>
   <% end %>
-
-  <h3>Vymazať tento účet?</h3>
-
-  <p>Nespokojný? <%= button_to "Vymazať môj účet", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete, :class => 'btn btn-outline-danger' %></p>
-
 </div>
