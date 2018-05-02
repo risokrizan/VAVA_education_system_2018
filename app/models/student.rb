@@ -5,6 +5,4 @@ class Student < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
 
-
-
 end

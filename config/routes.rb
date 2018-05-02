@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   root to: 'homes_#index'
   get "znamky/:stud_id", to: "students#show_all_grades"
   get "absencie/:stud_id", to: "students#show_all_absence"
+  get "znamky/:stud_id/export", to: "students#export_csv_xls_grades", as: "znamky"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

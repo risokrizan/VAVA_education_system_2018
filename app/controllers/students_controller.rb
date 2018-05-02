@@ -12,7 +12,6 @@ class StudentsController < ApplicationController
     WHERE (students.id = " + id_ziaka + ")
   ")
     end
-
   end
 
   def show_all_absence
@@ -25,6 +24,5 @@ class StudentsController < ApplicationController
    ")
     end
   end
-
 
 end
