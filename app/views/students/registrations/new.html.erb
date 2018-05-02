@@ -1,14 +1,26 @@
-<h2 class="text-center display-4">Registrovať sa ako učiteľ</h2>
+<h2 class="text-center display-4">Registrovať sa ako žiak</h2>
 
 <div class="wrapper-center w-50">
   <hr>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :birth_date %><br/>
+      <%= f.date_field :birth_date, autofocus: true, :class => 'form-control' %>
+    </div>
+    <div class="form-group dropup">
+      <%= f.label :trieda %><br/>
+      <%= f.collection_select(:classes_id, Classe.all, :id, :name, { :prompt => 'Vyber svoju triedu'}, { class: 'btn btn-default dropdown-toggle' }) %>
+    </div>
     <div class="form-group">
       <%= f.label :Email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => 'form-control' %>
     </div>
+
 
     <div class="form-group">
       <%= f.label :Heslo %>

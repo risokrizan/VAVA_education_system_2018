@@ -1,4 +1,4 @@
-<h2 class="text-center display-4">Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class="text-center display-4">Upraviť profil</h2>
 
 <div class="wrapper-center w-50">
   <hr>
@@ -29,7 +29,7 @@
 
     <div class="form-group">
       <%= f.label :Súčasné_heslo %> <i>(potrebujeme vaše súčasné heslo na potvrdenie zmien)</i><br/>
-      <%= f.password_field :Súčasné_heslo, autocomplete: "off", :class => 'form-control' %>
+      <%= f.password_field :current_password, autocomplete: "off", :class => 'form-control' %>
     </div>
 
     <div class="actions">

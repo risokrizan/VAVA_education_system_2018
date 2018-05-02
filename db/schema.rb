@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180501215003) do
     t.date "when"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "students_id"
+    t.bigint "students_id", null: false
     t.string "reason"
     t.index ["students_id"], name: "index_absences_on_students_id"
   end
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20180501215003) do
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "students_id"
-    t.bigint "subjects_id"
+    t.bigint "students_id", null: false
+    t.bigint "subjects_id", null: false
     t.index ["students_id"], name: "index_grades_on_students_id"
     t.index ["subjects_id"], name: "index_grades_on_subjects_id"
   end
@@ -46,11 +46,11 @@ ActiveRecord::Schema.define(version: 20180501215003) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "name"
-    t.date "birth_date"
+    t.string "name", null: false
+    t.date "birth_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "classes_id"
+    t.bigint "classes_id", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20180501215003) do
   create_table "subject_students", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "subjects_id"
-    t.bigint "students_id"
+    t.bigint "subjects_id", null: false
+    t.bigint "students_id", null: false
     t.index ["students_id"], name: "index_subject_students_on_students_id"
     t.index ["subjects_id"], name: "index_subject_students_on_subjects_id"
   end
@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(version: 20180501215003) do
   create_table "teacher_classes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "teachers_id"
-    t.bigint "classes_id"
+    t.bigint "teachers_id", null: false
+    t.bigint "classes_id", null: false
     t.index ["classes_id"], name: "index_teacher_classes_on_classes_id"
     t.index ["teachers_id"], name: "index_teacher_classes_on_teachers_id"
   end
@@ -95,16 +95,16 @@ ActiveRecord::Schema.define(version: 20180501215003) do
   create_table "teacher_subjects", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "teachers_id"
-    t.bigint "subjects_id"
+    t.bigint "teachers_id", null: false
+    t.bigint "subjects_id", null: false
     t.index ["subjects_id"], name: "index_teacher_subjects_on_subjects_id"
     t.index ["teachers_id"], name: "index_teacher_subjects_on_teachers_id"
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string "name"
-    t.date "birth_date"
-    t.integer "credit_number"
+    t.string "name", null: false
+    t.date "birth_date", null: false
+    t.integer "credit_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
