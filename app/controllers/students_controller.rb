@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   before_action :authenticate_student!, only: [:show_all_grades, :show_all_absence]
 
+
   def show_all_grades
     id_ziaka = params[:stud_id]
     if (id_ziaka.to_i == current_student.id)
