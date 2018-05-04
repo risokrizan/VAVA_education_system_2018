@@ -66,15 +66,6 @@ ActiveRecord::Schema.define(version: 20180501215003) do
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
 
-  create_table "subject_students", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "subjects_id"
-    t.bigint "students_id"
-    t.index ["students_id"], name: "index_subject_students_on_students_id"
-    t.index ["subjects_id"], name: "index_subject_students_on_subjects_id"
-  end
-
   create_table "subjects", force: :cascade do |t|
     t.string "name"
     t.integer "difficulty"
@@ -125,8 +116,6 @@ ActiveRecord::Schema.define(version: 20180501215003) do
   add_foreign_key "grades", "students", column: "students_id"
   add_foreign_key "grades", "subjects", column: "subjects_id"
   add_foreign_key "students", "classes", column: "classes_id"
-  add_foreign_key "subject_students", "students", column: "students_id"
-  add_foreign_key "subject_students", "subjects", column: "subjects_id"
   add_foreign_key "teacher_classes", "classes", column: "classes_id"
   add_foreign_key "teacher_classes", "teachers", column: "teachers_id"
   add_foreign_key "teacher_subjects", "subjects", column: "subjects_id"
