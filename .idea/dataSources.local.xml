@@ -7,7 +7,7 @@
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>adrianvyskoc</user-name>
+      <user-name>RisoKrizan</user-name>
       <introspection-schemas>vava_2018:public</introspection-schemas>
     </data-source>
     <data-source name="Rails VAVA_education_system_2018: test" uuid="c304d928-3ae6-473d-b1d6-9f06d200a684">
