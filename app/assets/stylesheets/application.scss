@@ -14,10 +14,18 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "bootstrap";
 
+.html, .body {
+    height: 100%;
+}
+
 .bg-red {
   color: white;
   background-color: #ee6e73;
   height: 60px;
+}
+
+.color-red {
+  color: #e94047;
 }
 
 .btn-red {
@@ -70,4 +78,12 @@
 
 .height-max {
   height: 100vh;
+}
+
+.landing {
+  background:
+            /* bottom, image */
+          url('https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  background-size: cover;
+  height: 500px;
 }

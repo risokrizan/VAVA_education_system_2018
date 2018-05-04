@@ -9,11 +9,14 @@
       </h1>
       <p class="text-muted">Prehľad známok jednotlivých predmetov.</p>
       <hr>
+      <h6>Pridaj známku</h6>
+
+      <%= render 'add_grade_form', grade: @all_grades %>
+
     </div>
     <div class="col-lg-8 pt-3 pr-5 height-max">
       <div style="margin-bottom: 10px; text-align: right">
         <button class="btn btn-success" id="btnExport">Exportovať</button>
-        <a class="btn btn-success" href="/zapis_znamky/<%= current_teacher.id %>/pridaj">Pridať Známku</a>
       </div>
 
       <table class="table table-sm" id="tableWrapper">

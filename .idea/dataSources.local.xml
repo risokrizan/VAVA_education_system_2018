@@ -7,11 +7,11 @@
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>RisoKrizan</user-name>
+      <user-name>adrianvyskoc</user-name>
       <introspection-schemas>vava_2018:public</introspection-schemas>
     </data-source>
     <data-source name="Rails VAVA_education_system_2018: test" uuid="c304d928-3ae6-473d-b1d6-9f06d200a684">
-      <database-info product="PostgreSQL" version="10.3" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.1">
+      <database-info product="PostgreSQL" version="10.3" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />

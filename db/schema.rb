@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180501215003) do
     t.date "when"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "students_id", null: false
+    t.bigint "students_id"
     t.string "reason"
     t.index ["students_id"], name: "index_absences_on_students_id"
   end
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20180501215003) do
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "students_id", null: false
-    t.bigint "subjects_id", null: false
+    t.bigint "students_id"
+    t.bigint "subjects_id"
     t.index ["students_id"], name: "index_grades_on_students_id"
     t.index ["subjects_id"], name: "index_grades_on_subjects_id"
   end
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20180501215003) do
     t.date "birth_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "classes_id", null: false
+    t.bigint "classes_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 20180501215003) do
   create_table "teacher_classes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "teachers_id", null: false
-    t.bigint "classes_id", null: false
+    t.bigint "teachers_id"
+    t.bigint "classes_id"
     t.index ["classes_id"], name: "index_teacher_classes_on_classes_id"
     t.index ["teachers_id"], name: "index_teacher_classes_on_teachers_id"
   end
@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(version: 20180501215003) do
   create_table "teacher_subjects", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "teachers_id", null: false
-    t.bigint "subjects_id", null: false
+    t.bigint "teachers_id"
+    t.bigint "subjects_id"
     t.index ["subjects_id"], name: "index_teacher_subjects_on_subjects_id"
     t.index ["teachers_id"], name: "index_teacher_subjects_on_teachers_id"
   end
