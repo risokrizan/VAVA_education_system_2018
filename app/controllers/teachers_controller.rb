@@ -5,16 +5,18 @@ class TeachersController < ApplicationController
     id_ucitela = params[:teach_id]
     if (id_ucitela.to_i == current_teacher.id)
       @all_grades=ActiveRecord::Base.connection.execute("
-      SELECT s2.name as stname ,c2.name as trname, s3.name as prname ,grades.value as znamka, grades.created_at as datum FROM grades
-        JOIN students s2 ON grades.students_id = s2.id
-        JOIN subjects s3 ON grades.subjects_id = s3.id
-        JOIN teacher_subjects s4 ON s3.id = s4.subjects_id
-        JOIN teachers t ON s4.teachers_id = t.id
-        JOIN classes c2 ON s2.classes_id = c2.id
-      WHERE (t.id=" + id_ucitela + ")
+      SELECT s3.name as stname,c2.name as trname,s2.name as prname,g.value as znamka, g.created_at as datum FROM teachers
+      JOIN teacher_subjects subject ON teachers.id = subject.teachers_id
+      JOIN subjects s2 ON subject.subjects_id = s2.id
+      JOIN grades g ON s2.id = g.subjects_id
+      JOIN students s3 ON g.students_id = s3.id
+      JOIN teacher_classes tc ON teachers.id = tc.teachers_id
+      JOIN classes c2 ON s3.classes_id = c2.id
+      WHERE (teachers.id=" + id_ucitela + ")
 ")
     end
   end
+
   def pridaj
     @grade = Grade.new
 

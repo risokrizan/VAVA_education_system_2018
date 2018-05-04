@@ -17,6 +17,9 @@
     </div>
   </div>
 </div>
+<div class="hidden">
+  <% @pocet_studentov %> <% @pocet_ucitelov %>
+</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 <script>
@@ -27,7 +30,7 @@
             labels: ["Študenti", "Učitelia"],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19],
+                data: [, ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)'
