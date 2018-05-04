@@ -1,22 +1,25 @@
 <%= form_for(:grade, local: true) do |form| %>
-
-  <div class="field" >
-    <%= form.label :Žiak %>
-    <%= form.collection_select(:students_id, Student.all, :id, :name, { :prompt => 'Vyber Žiaka' }, { class: 'blablabla' }) %>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= form.label :Žiak %>
+        <%= form.collection_select(:students_id, Student.all, :id, :name, {:prompt => 'Vyber žiaka'}, {class: 'form-control'}) %>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= form.label :Predmet %>
+        <%= form.collection_select(:subjects_id, Subject.all, :id, :name, {:prompt => 'Vyber predmet'}, {class: 'form-control'}) %>
+      </div>
+    </div>
   </div>
 
-  <div class="field" >
-    <%= form.label :Predmet %>
-    <%= form.collection_select(:subjects_id, Subject.all, :id, :name, { :prompt => 'Vyber Predmet' }, { class: 'blablabla' }) %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :Známka %>
-    <%= form.number_field :value, id: :account_number %>
+    <%= form.number_field :value, id: :account_number, :class => 'form-control' %>
   </div>
-
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => 'btn btn-red' %>
   </div>
 <% end %>
