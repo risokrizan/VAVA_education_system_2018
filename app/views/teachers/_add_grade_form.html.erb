@@ -1,0 +1,22 @@
+<%= form_for(:grade, local: true) do |form| %>
+
+  <div class="field" >
+    <%= form.label :Žiak %>
+    <%= form.collection_select(:students_id, Student.all, :id, :name, { :prompt => 'Vyber Žiaka' }, { class: 'blablabla' }) %>
+  </div>
+
+  <div class="field" >
+    <%= form.label :Predmet %>
+    <%= form.collection_select(:subjects_id, Subject.all, :id, :name, { :prompt => 'Vyber Predmet' }, { class: 'blablabla' }) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Známka %>
+    <%= form.number_field :value, id: :account_number %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
