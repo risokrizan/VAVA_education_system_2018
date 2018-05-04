@@ -6,10 +6,9 @@ class StudentsController < ApplicationController
     id_ziaka = params[:stud_id]
     if (id_ziaka.to_i == current_student.id)
       @grades = ActiveRecord::Base.connection.execute("
-    SELECT students.name as sname,s2.name as predmet,g.value as znamka ,g.created_at as datum FROM students
-    JOIN subject_students student ON students.id = student.students_id
-    JOIN subjects s2 ON student.subjects_id = s2.id
-    JOIN grades g ON s2.id = g.subjects_id
+    SELECT s2.name as predmet,students.name as sname,g.value as znamka, g.created_at as datum, FROM students
+    JOIN grades g ON students.id = g.students_id
+    JOIN subjects s2 ON g.subjects_id = s2.id
     WHERE (students.id = " + id_ziaka + ")
   ")
     end

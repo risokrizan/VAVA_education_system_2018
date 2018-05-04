@@ -1,2 +1,0 @@
-class SubjectStudent < ApplicationRecord
-end

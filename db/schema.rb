@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20180501215003) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "name", null: false
-    t.date "birth_date", null: false
+    t.string "name"
+    t.date "birth_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "classes_id", null: false
@@ -64,15 +64,6 @@ ActiveRecord::Schema.define(version: 20180501215003) do
     t.index ["classes_id"], name: "index_students_on_classes_id"
     t.index ["email"], name: "index_students_on_email", unique: true
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
-  end
-
-  create_table "subject_students", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "subjects_id", null: false
-    t.bigint "students_id", null: false
-    t.index ["students_id"], name: "index_subject_students_on_students_id"
-    t.index ["subjects_id"], name: "index_subject_students_on_subjects_id"
   end
 
   create_table "subjects", force: :cascade do |t|
@@ -102,9 +93,9 @@ ActiveRecord::Schema.define(version: 20180501215003) do
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string "name", null: false
-    t.date "birth_date", null: false
-    t.integer "credit_number", null: false
+    t.string "name"
+    t.date "birth_date"
+    t.integer "credit_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -125,8 +116,6 @@ ActiveRecord::Schema.define(version: 20180501215003) do
   add_foreign_key "grades", "students", column: "students_id"
   add_foreign_key "grades", "subjects", column: "subjects_id"
   add_foreign_key "students", "classes", column: "classes_id"
-  add_foreign_key "subject_students", "students", column: "students_id"
-  add_foreign_key "subject_students", "subjects", column: "subjects_id"
   add_foreign_key "teacher_classes", "classes", column: "classes_id"
   add_foreign_key "teacher_classes", "teachers", column: "teachers_id"
   add_foreign_key "teacher_subjects", "subjects", column: "subjects_id"
