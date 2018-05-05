@@ -5,22 +5,20 @@ class TeachersController < ApplicationController
     id_ucitela = params[:teach_id]
     if (id_ucitela.to_i == current_teacher.id)
       @all_grades=ActiveRecord::Base.connection.execute("
-      SELECT s3.name as stname,c2.name as trname,s2.name as prname,g.value as znamka, g.created_at as datum FROM teachers
-      JOIN teacher_subjects subject ON teachers.id = subject.teachers_id
-      JOIN subjects s2 ON subject.subjects_id = s2.id
-      JOIN grades g ON s2.id = g.subjects_id
-      JOIN students s3 ON g.students_id = s3.id
-      JOIN teacher_classes tc ON teachers.id = tc.teachers_id
-      JOIN classes c2 ON s3.classes_id = c2.id
-      WHERE (teachers.id=" + id_ucitela + ")
+
+      SELECT grades.id as grade_id,s2.name as stname ,c2.name as trname, s3.name as prname ,grades.value as znamka, grades.created_at as datum,grades.students_id as students_id, grades.subjects_id as subjects_id, grades.value FROM grades
+        JOIN students s2 ON grades.students_id = s2.id
+        JOIN subjects s3 ON grades.subjects_id = s3.id
+        JOIN teacher_subjects s4 ON s3.id = s4.subjects_id
+        JOIN teachers t ON s4.teachers_id = t.id
+        JOIN classes c2 ON s2.classes_id = c2.id
+      WHERE (t.id=" + id_ucitela + ")
 ")
     end
-  end
-
-  def pridaj
-    @grade = Grade.new
 
   end
+
+
   def add_grade
     @grade = Grade.new(grade_params)
 
@@ -35,9 +33,25 @@ class TeachersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @grade = Grade.find(params[:grade_id])
+    respond_to do |format|
+      if @grade.update(grade_params)
+        format.html { redirect_to znamky_ucitela_path, notice: 'Známka úspešne upravená' }
+        #format.json { render :show, status: :ok, location: @account }
+      else
+        format.html { render :edit }
+        format.json { render json: @grade.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   private
   def grade_params
     params.require(:grade).permit(:value, :students_id, :subjects_id)
   end
+
 end
