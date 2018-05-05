@@ -2,6 +2,7 @@ class TeachersController < ApplicationController
   before_action :authenticate_teacher!, only: []
 
   def show_teacher_grades
+
     id_ucitela = params[:teach_id]
     if (id_ucitela.to_i == current_teacher.id)
       @all_grades=ActiveRecord::Base.connection.execute("
@@ -34,20 +35,12 @@ class TeachersController < ApplicationController
   end
 
   def edit
+    @grade = Grade.find(params[:grade_id])
   end
 
-  def update
-    @grade = Grade.find(params[:grade_id])
-    respond_to do |format|
-      if @grade.update(grade_params)
-        format.html { redirect_to znamky_ucitela_path, notice: 'Známka úspešne upravená' }
-        #format.json { render :show, status: :ok, location: @account }
-      else
-        format.html { render :edit }
-        format.json { render json: @grade.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+
+
+
 
   private
   def grade_params

@@ -1,27 +1,59 @@
-<%= form_for(:grade, local: true) do |form| %>
-  <div class="row">
-    <div class="col-lg-6">
-      <div class="form-group">
-        <%= form.label :Žiak %>
-        <%= form.collection_select(:students_id, Student.all, :id, :name, {:prompt => 'Vyber žiaka'}, {class: 'form-control'}) %>
+
+<% if @grade == NIL %>
+  <%= form_for(:grade, local: true) do |form| %>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= form.label :Žiak %>
+          <%= form.collection_select(:students_id, Student.all, :id, :name, {:prompt => 'Vyber žiaka'}, {class: 'form-control'}) %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= form.label :Predmet %>
+          <%= form.collection_select(:subjects_id, Subject.all, :id, :name, {:prompt => 'Vyber predmet'}, {class: 'form-control'}) %>
+        </div>
       </div>
     </div>
-    <div class="col-lg-6">
-      <div class="form-group">
-        <%= form.label :Predmet %>
-        <%= form.collection_select(:subjects_id, Subject.all, :id, :name, {:prompt => 'Vyber predmet'}, {class: 'form-control'}) %>
+
+    <div class="form-group">
+      <%= form.label :Známka %>
+
+      <%= form.number_field :value, :class => 'form-control' %>
+
+    </div>
+
+    <div class="actions">
+      <%= form.submit :class => 'btn btn-red' %>
+    </div>
+  <% end %>
+
+<% else %>
+  <%= form_for(@grade, local: true) do |form| %>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= form.label :Žiak %>
+          <%= form.collection_select(:students_id, Student.all, :id, :name, {:prompt => 'Vyber žiaka'}, {class: 'form-control'}) %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= form.label :Predmet %>
+          <%= form.collection_select(:subjects_id, Subject.all, :id, :name, {:prompt => 'Vyber predmet'}, {class: 'form-control'}) %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <%= form.label :Známka %>
+    <div class="form-group">
+      <%= form.label :Známka %>
 
-    <%= form.number_field :value, :class => 'form-control' %>
+      <%= form.number_field :value, :class => 'form-control' %>
 
-  </div>
+    </div>
 
-  <div class="actions">
-    <%= form.submit :class => 'btn btn-red' %>
-  </div>
+    <div class="actions">
+      <%= form.submit :class => 'btn btn-red' %>
+    </div>
+  <% end %>
 <% end %>
