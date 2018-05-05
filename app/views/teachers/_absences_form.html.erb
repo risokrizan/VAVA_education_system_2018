@@ -10,9 +10,9 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="form-group">
-          <%= form.label :Dátum %>
-          <%= form.date_select(:when, id: :announcement_date) %>
+        <div class="form-group custom">
+          <%= form.label :Dátum, :class => 'display-block' %>
+          <%= form.date_select(:when, id: :announcement_date, :class => 'form-control') %>
         </div>
       </div>
     </div>
@@ -53,7 +53,7 @@
     </div>
 
     <div class="actions">
-      <%= form.submit :class => 'btn btn-red' %>
+      <%= form.submit :class => 'btn btn-red'%>
     </div>
   <% end %>
 <% end %>

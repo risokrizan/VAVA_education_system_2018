@@ -45,7 +45,7 @@
           <th scope="col">Predmet</th>
           <th scope="col">Znamka</th>
           <th scope="col">Dátum</th>
-          <th scope="col">Akcia</th>
+          <th scope="col" colspan="2">Akcia</th>
         </tr>
         </thead>
         <tbody>
@@ -58,7 +58,7 @@
             <td><%= znamky.fetch('datum') %></td>
             <%znamky[:grade_id]=znamky.fetch('grade_id').to_i%>
             <td><%= link_to 'Edit',znamky_edit_path(znamky),class: "btn btn-warning" %></td>
-            <td><%= link_to 'Vymazať', znamky, method: :delete, data: { confirm: 'Ste si istý?' },class: "btn btn-warning" %></td>
+            <td><%= link_to 'Vymazať', znamky, method: :delete, data: { confirm: 'Ste si istý?' },class: "btn btn-danger" %></td>
           </tr>
         <% end %>
         </tbody>

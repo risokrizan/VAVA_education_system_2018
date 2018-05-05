@@ -66,7 +66,7 @@ class TeachersController < ApplicationController
 
     respond_to do |format|
       if @triedy.save
-        format.html {redirect_to vsetky_triedy_path, notice: 'Známka úspešne pridaná'}
+        format.html {redirect_to vsetky_triedy_path, notice: 'Trieda úspešne pridaná'}
         #format.json {render :show, status: :created, location: @grade}
       else
         format.html {render :pridaj}

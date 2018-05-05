@@ -43,6 +43,7 @@
           <th scope="col">Dátum absencie</th>
           <th scope="col">Dôvod</th>
           <th scope="col">Dátum doručenia</th>
+          <th scope="col" colspan="2">Akcie</th>
         </tr>
         </thead>
         <tbody>
@@ -55,7 +56,7 @@
             <td><%= absencie.fetch('datum_dorucenia') %></td>
             <%absencie[:abs_id]=absencie.fetch('absence_id').to_i%>
             <td><%= link_to 'Edit',absencie_edit_path(absencie),class: "btn btn-warning" %></td>
-            <td><%= link_to 'Vymazať', absencie, method: :delete, data: { confirm: 'Ste si istý?' },class: "btn btn-warning" %></td>
+            <td><%= link_to 'Vymazať', absencie, method: :delete, data: { confirm: 'Ste si istý?' },class: "btn btn-danger" %></td>
           </tr>
         <% end %>
         </tbody>
