@@ -5,6 +5,7 @@ class TeachersController < ApplicationController
     id_ucitela = params[:teach_id]
     if (id_ucitela.to_i == current_teacher.id)
       @all_grades=ActiveRecord::Base.connection.execute("
+
       SELECT grades.id as grade_id,s2.name as stname ,c2.name as trname, s3.name as prname ,grades.value as znamka, grades.created_at as datum,grades.students_id as students_id, grades.subjects_id as subjects_id, grades.value FROM grades
         JOIN students s2 ON grades.students_id = s2.id
         JOIN subjects s3 ON grades.subjects_id = s3.id

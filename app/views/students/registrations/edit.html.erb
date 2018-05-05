@@ -6,16 +6,16 @@
     <%= devise_error_messages! %>
 
     <div class="form-group">
-      <%= f.label :name %><br/>
+      <%= f.label :Meno %><br/>
       <%= f.text_field :name, autofocus: true, :class => 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :birth_date %><br/>
+      <%= f.label :Dátum_narodenia %><br/>
       <%= f.date_field :birth_date, autofocus: true, :class => 'form-control' %>
     </div>
     <div class="form-group dropup">
-      <%= f.label :classes_id %><br/>
-      <%= f.collection_select(:classes_id, Classe.all, :id, :name, { :prompt => 'Vyber svoju triedu'}, { class: 'btn btn-default dropdown-toggle' }) %>
+      <%= f.label :Trieda %><br/>
+      <%= f.collection_select(:classes_id, Classe.all, :id, :name, { :prompt => 'Vyber svoju triedu'}, { class: 'form-control' }) %>
     </div>
 
     <div class="form-group">
