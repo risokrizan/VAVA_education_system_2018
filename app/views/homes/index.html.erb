@@ -52,23 +52,23 @@
     <div class="col-lg-6">
       <canvas id="bar" width="400" height="400"></canvas>
       <div class="hidden">
-        <span class="students"><% @pocet_studentov %></span>
-        <span class="teachers"><% @pocet_ucitelov %></span>
+        <span class="students"><%= @pocet_studentov %></span>
+        <span class="teachers"><%= @pocet_ucitelov %></span>
       </div>
     </div>
     <div class="col-lg-6">
       <canvas id="pie" width="400" height="400"></canvas>
       <div class="hidden">
-        <span class="grade-1"><% @pocet_studentov %></span>
-        <span class="grade-2"><% @pocet_ucitelov %></span>
-        <span class="grade-3"><% @pocet_ucitelov %></span>
-        <span class="grade-4"><% @pocet_ucitelov %></span>
-        <span class="grade-5"><% @pocet_ucitelov %></span>
+        <span class="grade-1"><%= @pocet_jednotiek %></span>
+        <span class="grade-2"><%= @pocet_dvojok %></span>
+        <span class="grade-3"><%= @pocet_trojok %></span>
+        <span class="grade-4"><%= @pocet_stvoriek %></span>
+        <span class="grade-5"><%= @pocet_patiek %></span>
       </div>
     </div>
   </div>
 </div>
-</div>
+
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
@@ -81,7 +81,7 @@
         data: {
             labels: ["Študenti", "Učitelia"],
             datasets: [{
-                label: '# of Votes',
+                label: 'počet',
                 data: [students_num, teachers_num],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -118,10 +118,10 @@
     myChart = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: [grade_1, grade_2, grade_3, grade_4, grade_5],
+            labels: ["Jednotky", "Dvojky", "Trojky", "Štvorky", "Päťky"],
             datasets: [{
                 label: '# of Votes',
-                data: [14, 30, 32, 17, 11],
+                data: [grade_1, grade_2, grade_3,grade_4, grade_5],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
