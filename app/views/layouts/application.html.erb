@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
   </head>
 
   <body>
@@ -33,7 +34,7 @@
           <% if (teacher_signed_in?)  %>
             <li class="nav-item"><a class="nav-link" href="/">Domov</a></li>
             <li class="nav-item"><a class="nav-link" href="/zapis_znamky/<%= current_teacher.id %>">Zápis známok</a></li>
-            <li class="nav-item"><a class="nav-link" href="/">Zápis absencie</a></li>
+            <li class="nav-item"><a class="nav-link" href="/zapis_absencii/<%= current_teacher.id %>">Zápis absencie</a></li>
           <% end %>
         </ul>
         <ul class="navbar-nav">
@@ -73,20 +74,34 @@
     <!-- NAVBAR END-->
 
     <% if notice %>
-      <blockquote>
-        <p class="alert alert-danger"><%= notice %></p>
-      </blockquote>
+      <div class="alert alert-success alert-dismissible fade show alert-custom" role="alert">
+        <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     <% end %>
     <% if alert %>
-      <blockquote>
-        <p class="alert alert-danger"><%= alert %></p>
-      </blockquote>
+      <div class="alert alert-danger alert-dismissible fade show alert-custom" role="alert">
+        <%= alert %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     <% end %>
 
     <div class="main">
       <%= yield %>
     </div>
 
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">© 2017-2018 Richard Križan & Adrián Vyskoč </p>
+      <p class="lead">Vývoj aplikácií s viacvrstvovou architektúrou</p>
+    </footer>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
   </body>
 </html>
 

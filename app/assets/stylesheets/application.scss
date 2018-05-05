@@ -24,6 +24,18 @@
   height: 60px;
 }
 
+.short {
+  width: 5%;
+  border-bottom: 1px solid #666666;
+}
+
+.alert-custom {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  text-align: center;
+}
+
 .color-red {
   color: #e94047;
 }
@@ -84,6 +96,10 @@
   width: 20%;
 }
 
+.mt-20 {
+  margin-top: 25px;
+}
+
 .card {
   color: #212529;
   transition: 0.3s;
@@ -116,3 +132,4 @@ a:hover {
     height: inherit;
   }
 }
+

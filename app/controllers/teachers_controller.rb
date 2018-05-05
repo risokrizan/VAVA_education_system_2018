@@ -14,11 +14,39 @@ class TeachersController < ApplicationController
         JOIN teachers t ON s4.teachers_id = t.id
         JOIN classes c2 ON s2.classes_id = c2.id
       WHERE (t.id=" + id_ucitela + ")
-")
+      ")
+
+      @all_classes = ActiveRecord::Base.connection.execute("SELECT id, name FROM classes")
+      @all_students = ActiveRecord::Base.connection.execute("SELECT id, name FROM students")
     end
 
   end
 
+  def show_all_absences
+    id_ucitela = params[:teach_id]
+    if(id_ucitela.to_i == current_teacher.id)
+      @all_absences = ActiveRecord::Base.connection.execute(
+          "SELECT absences.id as absence_id, s.name as stname, c.name as trname, absences.when as datum, absences.reason as dovod, absences.created_at as datum_dorucenia FROM absences
+            JOIN students s ON absences.students_id = s.id
+            JOIN classes c ON s.classes_id = c.id
+          ")
+      @all_classes = ActiveRecord::Base.connection.execute("SELECT id, name FROM classes")
+      @all_students = ActiveRecord::Base.connection.execute("SELECT id, name FROM students")
+    end
+  end
+
+  def add_absence
+    @absence = Absence.new(absence_params)
+
+    respond_to do |format|
+      if @absence.save
+        format.html {redirect_to vypis_absencii_ucitel_path, notice: 'Absencia úspešne pridaná'}
+      else
+        format.html {render :pridaj}
+        format.json {render json: @grade.errors, status: :unprocessable_entity}
+      end
+    end
+  end
 
   def add_grade
     @grade = Grade.new(grade_params)
@@ -38,7 +66,9 @@ class TeachersController < ApplicationController
     @grade = Grade.find(params[:grade_id])
   end
 
-
+  def add_absence
+    @absence = Absence.new(absence_params)
+  end
 
 
 

@@ -2,10 +2,83 @@
   <div class="container">
     <h3 class="color-red display-3">Vitajte v akademickom systéme.</h3>
     <p class="lead">Tento systém je určený na správu študijných informácií o študentoch.</p>
+    <% if !((student_signed_in?) || (teacher_signed_in?)) %><h3 class="display-4">Čo v tomto systéme nájdete?</h3><% end %>
     <hr class="my-4">
+
+    <% if !((student_signed_in?) || (teacher_signed_in?)) %>
+    <p class="lead text-center">Pre učitela</p>
+    <hr class="short">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 box-shadow" data-aos="slide-right">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Administrácia známok</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><i class="fas fa-book big"></i></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Pridávanie známok</li>
+            <li>Úprava známok</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card mb-4 box-shadow" data-aos="fade-down">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Administrácia absencií</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><i class="fas fa-calendar-minus big"></i></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Jednoduchá administrácia absencií jednotlivých žiakov.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card mb-4 box-shadow" data-aos="slide-left">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Manažment tried</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><i class="fab fa-buromobelexperte big"></i></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Pridávanie žiakov do tried</li>
+            <li>Priraďovanie predmetov k triedam</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="lead text-center">Pre študenta</p>
+    <hr class="short">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 box-shadow" data-aos="slide-right">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Informácie o známkach</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><i class="fas fa-book big"></i></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Prezrite si vaše doterajšie známky rýchlo a efektívne.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card mb-4 box-shadow" data-aos="slide-left">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Informácie o absenciách</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><i class="fas fa-calendar-minus big"></i></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Kontrolovať, kedy ste nebol v škole prítomný/á nikdy nebolo také jednoduché!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+
+    <% if (teacher_signed_in?)  %>
     <div class="row">
-      <div class="col-md-6 col-sm-12">
-        <a href="/zapis_znamky/1">
+      <div class="col-md-6 col-sm-12 mt-20" data-aos="fade-down">
+        <a href="/zapis_znamky/<%= current_teacher.id %>">
           <div class="card">
             <div class="card-body">
               <div class="w-20 float-left">
@@ -22,12 +95,12 @@
         </a>
 
       </div>
-      <div class="col-md-6 col-sm-12">
-        <a href="">
+      <div class="col-md-6 col-sm-12 mt-20" data-aos="fade-down">
+        <a href="/zapis_absencii/<%= current_teacher.id %>">
           <div class="card">
             <div class="card-body">
               <div class="w-20 float-left">
-                <i class="fas fa-book big"></i>
+                <i class="fas fa-calendar-minus big"></i>
               </div>
               <div class="w-80 float-left">
                 <h5 class="card-title"> Zápis absencie</h5>
@@ -39,7 +112,25 @@
           </div>
         </a>
       </div>
+      <div class="col-md-6 col-sm-12 mt-20" data-aos="fade-up">
+        <a href="/zapis_absencii/<%= current_teacher.id %>">
+          <div class="card">
+            <div class="card-body">
+              <div class="w-20 float-left">
+                <i class="fab fa-buromobelexperte big"></i>
+              </div>
+              <div class="w-80 float-left">
+                <h5 class="card-title"> Manažment tried</h5>
+              </div>
+              <div class="w-100">
+                <p class="card-text">Kliknite na spravovanie tried.</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
+    <% end %>
   </div>
 </div>
 

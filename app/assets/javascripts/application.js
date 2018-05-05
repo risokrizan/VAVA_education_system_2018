@@ -37,3 +37,7 @@ $(document).ready(function() {
         a.click();
     });
 });
+
+$('.alert').alert();
+
+
