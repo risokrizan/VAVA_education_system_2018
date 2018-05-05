@@ -26,6 +26,7 @@
           <th scope="col">Predmet</th>
           <th scope="col">Znamka</th>
           <th scope="col">Dátum</th>
+          <th scope="col">Akcia</th>
         </tr>
         </thead>
         <tbody>
@@ -37,7 +38,7 @@
             <td><%= znamky.fetch('znamka') %></td>
             <td><%= znamky.fetch('datum') %></td>
             <%znamky[:grade_id]=znamky.fetch('grade_id').to_i%>
-            <td><%= link_to 'Edit',znamky_edit_path(znamky),class: "btn btn-success" %></td>
+            <td><%= link_to 'Edit',znamky_edit_path(znamky),class: "btn btn-warning" %></td>
 
           </tr>
         <% end %>
