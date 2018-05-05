@@ -26,5 +26,8 @@ Rails.application.routes.draw do
   get "triedy/:teach_id", to: "teachers#all_classes", as: "vsetky_triedy"
   get "triedy/:teach_id/edit/:class_id", to: "teachers#edit_triedy", as: "class_edit"
   post "triedy/:teach_id", to: "teachers#add_classes"
+  get "triedy/:teach_id/:class_id",  to:"teachers#class_detail", as: "class_detail"
+  get "triedy/:teach_id/:class_id/edit/:stud_id", to:"teachers#edit_triedy_ziaka", as: "student_class_edit"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

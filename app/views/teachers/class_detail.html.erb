@@ -1,0 +1,45 @@
+<% if @detail == NIL %>
+  <h3 class="alert alert-danger">Nie sú zadané žiadne absencie.</h3>
+<% else %>
+  <div class="row">
+    <div class="col-lg-4 pt-3 pl-5 pr-5 bg-light height-max">
+      <h1 class="display-4">
+        Prehľad absencií žiakov
+      </h1>
+      <p class="text-muted">Prehľad absencií jednotlivých žiakov.</p>
+      <hr>
+
+
+    </div>
+    <div class="col-lg-8 pt-3 pr-5 height-max">
+      <div style="margin-bottom: 10px; text-align: right">
+        <button class="btn btn-success" id="btnExport">Exportovať</button>
+      </div>
+      <table class="table table-sm" id="tableWrapper">
+        <thead class="thead-red">
+        <tr>
+          <th scope="col">Žiak</th>
+          <th scope="col">Datum narodenia:</th>
+          <th scope="col">Email</th>
+          <th scope="col">Trieda</th>
+          <th scope="col">Naposledy prihlaseny</th>
+          <th scope="col" colspan="2">Akcie</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @detail.each do |details| %>
+          <tr>
+            <th scope="row"><%= details.fetch('stname') %></th>
+            <td><%= details.fetch('bdate') %></td>
+            <td><%= details.fetch('email') %></td>
+            <td><%= details.fetch('trname') %></td>
+            <td><%= details.fetch('nprihlaseny') %></td>
+            <% details[:stud_id]=details.fetch('sid').to_i%>
+            <td><%= link_to 'Edit',student_class_edit_path(details),class: "btn btn-warning" %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>

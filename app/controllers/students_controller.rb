@@ -26,4 +26,29 @@ class StudentsController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
+  def update
+    @student=Student.find(params[:id])
+    respond_to do |format|
+      if @student.update(student_params)
+        a=@student.id
+        format.html { redirect_to "/triedy/"+current_teacher.id.to_s+"/"+a.to_s+"", notice: 'Známka úspešne upravená' }
+        #format.json { render :show, status: :ok, location: @account }
+      else
+        format.html { render :edit }
+        format.json { render json: @grade.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  private
+
+  def student_params
+    params.require(:student).permit(:classes_id,:name)
+  end
+
+
 end

@@ -87,10 +87,25 @@ class TeachersController < ApplicationController
     @triedy = Classe.find(params[:class_id])
   end
 
+  def edit_triedy_ziaka
+    @student = Student.find(params[:stud_id])
+  end
+
   def all_classes
     id_ucitela = params[:teach_id]
     if(id_ucitela.to_i == current_teacher.id)
       @all_classes = ActiveRecord::Base.connection.execute("SELECT * FROM classes")
+    end
+  end
+  def class_detail
+    id_ucitela = params[:teach_id]
+    id_triedy = params[:class_id].to_s
+    if(id_ucitela.to_i == current_teacher.id)
+      @detail = ActiveRecord::Base.connection.execute("
+      SELECT s2.id as sid,s2.name as stname,classes.name as trname, s2.birth_date as bdate, s2.email as email, s2.last_sign_in_at as nprihlaseny  FROM classes
+      join students s2 ON classes.id = s2.classes_id
+      where (classes.id = "+id_triedy+")
+      ")
     end
   end
 

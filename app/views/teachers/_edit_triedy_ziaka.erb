@@ -1,0 +1,30 @@
+<% if @student == NIL %>
+  <%= form_for(:student, local: true) do |form| %>
+
+
+      <div class="form-group dropup">
+        <%= form.label :trieda %><br/>
+        <%= form.collection_select(:classes_id, Classe.all, :id, :name, {:prompt => 'Vyber svoju triedu'}, {class: 'btn btn-default dropdown-toggle'}) %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit :class => 'btn btn-red' %>
+      </div>
+    </div>
+  <% end %>
+
+<% else %>
+  <%= form_for(@student, local: true) do |form| %>
+
+
+      <div class="form-group dropup">
+        <%= form.label :trieda %><br/>
+        <%= form.collection_select(:classes_id, Classe.all, :id, :name, {:prompt => 'Vyber svoju triedu'}, {class: 'btn btn-default dropdown-toggle'}) %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit :class => 'btn btn-red' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
