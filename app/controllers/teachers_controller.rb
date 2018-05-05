@@ -49,6 +49,10 @@ class TeachersController < ApplicationController
     end
   end
 
+
+
+
+
   private
   def grade_params
     params.require(:grade).permit(:value, :students_id, :subjects_id)
