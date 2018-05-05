@@ -17,6 +17,16 @@ end
     end
   end
 
+def destroy
+  Grade.transaction do
+    @grade=Grade.find(params[:grade_id])
+    @grade.destroy
+    respond_to do |format|
+      format.html { redirect_to "/zapis_znamky/"+current_teacher.id.to_s+"", notice: 'Známka zmazaná' }
+      format.json { head :no_content }
+    end
+  end
+end
 
   private
   def grade_params

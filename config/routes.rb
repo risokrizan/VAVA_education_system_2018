@@ -18,8 +18,13 @@ Rails.application.routes.draw do
 
   post "zapis_znamky/:teach_id", to: "teachers#add_grade"
   get "zapis_znamky/:teach_id/edit/:grade_id", to: "teachers#edit", as: "znamky_edit"
-  post "zapis_znamky/:teach_id/edit/:grade_id", to: "teachers#update"
-
-
+  post "zapis_absencii/:teach_id", to: "teachers#add_absence"
+  get "zapis_absencii/:teach_id/edit/:abs_id", to: "teachers#edit_absence", as: "absencie_edit"
+  delete "zapis_znamky/:teach_id", to: "grades#destroy"
+  delete "zapis_absencii/:teach_id", to: "absences#destroy"
+  delete "triedy/:teach_id", to: "classes#destroy"
+  get "triedy/:teach_id", to: "teachers#all_classes", as: "vsetky_triedy"
+  get "triedy/:teach_id/edit/:class_id", to: "teachers#edit_triedy", as: "class_edit"
+  post "triedy/:teach_id", to: "teachers#add_classes"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

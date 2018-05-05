@@ -1,0 +1,33 @@
+<% if @triedy == NIL %>
+  <%= form_for(:triedy, local: true) do |form| %>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= form.label :Známka %>
+          <%= form.text_field :name, :class => 'form-control' %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit :class => 'btn btn-red' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<% else %>
+  <%= form_for(@triedy, local: true) do |form| %>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <%= form.label :Známka %>
+          <%= form.text_field :name, :class => 'form-control' %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit :class => 'btn btn-red' %>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+<% end %>

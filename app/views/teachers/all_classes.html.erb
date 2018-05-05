@@ -1,0 +1,41 @@
+<% if @all_classes == NIL %>
+  <h3 class="alert alert-danger">Nie sú zadané žiadne absencie.</h3>
+<% else %>
+  <div class="row">
+    <div class="col-lg-4 pt-3 pl-5 pr-5 bg-light height-max">
+      <h1 class="display-4">
+        Prehľad absencií žiakov
+      </h1>
+      <p class="text-muted">Prehľad absencií jednotlivých žiakov.</p>
+      <hr>
+
+
+      <h3>Pridať absenciu</h3>
+      <%= render 'triedy_form', grade: @triedy %>
+
+    </div>
+    <div class="col-lg-8 pt-3 pr-5 height-max">
+      <div style="margin-bottom: 10px; text-align: right">
+        <button class="btn btn-success" id="btnExport">Exportovať</button>
+      </div>
+      <table class="table table-sm" id="tableWrapper">
+        <thead class="thead-red">
+        <tr>
+          <th scope="col">Trieda</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @all_classes.each do |triedy| %>
+          <tr>
+            <th scope="row"><%= triedy.fetch('name') %></th>
+            <% triedy[:class_id]=triedy.fetch('id').to_i%>
+            <% triedy[:id]=triedy.fetch('id').to_i%>
+            <td><%= link_to 'Edit',class_edit_path(triedy),class: "btn btn-warning" %></td>
+            <td><%= link_to 'Vymazať', triedy, method: :delete, data: { confirm: 'Ste si istý?' },class: "btn btn-warning" %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>

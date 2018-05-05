@@ -27,7 +27,8 @@
           <% end %>
         </select>
       </div>
-
+      <h3>Pridať absenciu</h3>
+      <%= render 'absences_form', grade: @absence %>
 
     </div>
     <div class="col-lg-8 pt-3 pr-5 height-max">
@@ -52,6 +53,9 @@
             <td><%= absencie.fetch('datum') %></td>
             <td><%= absencie.fetch('dovod') %></td>
             <td><%= absencie.fetch('datum_dorucenia') %></td>
+            <%absencie[:abs_id]=absencie.fetch('absence_id').to_i%>
+            <td><%= link_to 'Edit',absencie_edit_path(absencie),class: "btn btn-warning" %></td>
+            <td><%= link_to 'Vymazať', absencie, method: :delete, data: { confirm: 'Ste si istý?' },class: "btn btn-warning" %></td>
           </tr>
         <% end %>
         </tbody>

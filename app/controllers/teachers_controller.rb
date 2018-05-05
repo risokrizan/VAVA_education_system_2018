@@ -61,20 +61,49 @@ class TeachersController < ApplicationController
       end
     end
   end
+  def add_classes
+    @triedy =Classe.new(classes_params)
+
+    respond_to do |format|
+      if @triedy.save
+        format.html {redirect_to vsetky_triedy_path, notice: 'Známka úspešne pridaná'}
+        #format.json {render :show, status: :created, location: @grade}
+      else
+        format.html {render :pridaj}
+        format.json {render json: @grade.errors, status: :unprocessable_entity}
+      end
+    end
+  end
 
   def edit
     @grade = Grade.find(params[:grade_id])
   end
 
-  def add_absence
-    @absence = Absence.new(absence_params)
+  def edit_absence
+    @absence = Absence.find(params[:abs_id])
   end
 
+  def edit_triedy
+    @triedy = Classe.find(params[:class_id])
+  end
+
+  def all_classes
+    id_ucitela = params[:teach_id]
+    if(id_ucitela.to_i == current_teacher.id)
+      @all_classes = ActiveRecord::Base.connection.execute("SELECT * FROM classes")
+    end
+  end
 
 
   private
   def grade_params
     params.require(:grade).permit(:value, :students_id, :subjects_id)
+  end
+  def absence_params
+    params.require(:absence).permit(:when, :reason, :students_id)
+  end
+  def classes_params
+    params.require(:triedy).permit(:name)
   end
 
 end
