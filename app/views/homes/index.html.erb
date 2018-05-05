@@ -3,34 +3,86 @@
     <h3 class="color-red display-3">Vitajte v akademickom systéme.</h3>
     <p class="lead">Tento systém je určený na správu študijných informácií o študentoch.</p>
     <hr class="my-4">
-    </p>
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <a href="/zapis_znamky/1">
+          <div class="card">
+            <div class="card-body">
+              <div class="w-20 float-left">
+                <i class="fas fa-book big"></i>
+              </div>
+              <div class="w-80 float-left">
+                <h5 class="card-title"> Zápis známok</h5>
+              </div>
+              <div class="w-100">
+                <p class="card-text">Kliknite na zapísanie známok študentom.</p>
+              </div>
+            </div>
+          </div>
+        </a>
+
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <a href="">
+          <div class="card">
+            <div class="card-body">
+              <div class="w-20 float-left">
+                <i class="fas fa-book big"></i>
+              </div>
+              <div class="w-80 float-left">
+                <h5 class="card-title"> Zápis absencie</h5>
+              </div>
+              <div class="w-100">
+                <p class="card-text">Kliknite na zapísanie absencie študentom.</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="container">
+
+
+
+
   <div class="row">
     <div class="col-lg-6">
-      <canvas id="myChart" width="400" height="400"></canvas>
+      <canvas id="bar" width="400" height="400"></canvas>
+      <div class="hidden">
+        <span class="students"><% @pocet_studentov %></span>
+        <span class="teachers"><% @pocet_ucitelov %></span>
+      </div>
     </div>
     <div class="col-lg-6">
-
+      <canvas id="pie" width="400" height="400"></canvas>
+      <div class="hidden">
+        <span class="grade-1"><% @pocet_studentov %></span>
+        <span class="grade-2"><% @pocet_ucitelov %></span>
+        <span class="grade-3"><% @pocet_ucitelov %></span>
+        <span class="grade-4"><% @pocet_ucitelov %></span>
+        <span class="grade-5"><% @pocet_ucitelov %></span>
+      </div>
     </div>
   </div>
 </div>
-<div class="hidden">
-  <% @pocet_studentov %> <% @pocet_ucitelov %>
 </div>
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 <script>
-    var ctx = document.getElementById("myChart").getContext('2d');
+    var students_num = parseInt($(".students").text());
+    var teachers_num = parseInt($(".teachers").text());
+    var ctx = document.getElementById("bar").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ["Študenti", "Učitelia"],
             datasets: [{
                 label: '# of Votes',
-                data: [, ],
+                data: [students_num, teachers_num],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)'
@@ -53,6 +105,51 @@
             title: {
                 display: true,
                 text: 'Počet užívateľov v systéme'
+            }
+        }
+    });
+
+    var grade_1 = parseInt($(".grade-1").text()),
+        grade_2 = parseInt($(".grade-2").text()),
+        grade_3 = parseInt($(".grade-3").text()),
+        grade_4 = parseInt($(".grade-4").text()),
+        grade_5 = parseInt($(".grade-5").text()),
+    ctx = document.getElementById("pie").getContext('2d');
+    myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [grade_1, grade_2, grade_3, grade_4, grade_5],
+            datasets: [{
+                label: '# of Votes',
+                data: [14, 30, 32, 17, 11],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            title: {
+                display: true,
+                text: 'Počty udelených známok'
             }
         }
     });

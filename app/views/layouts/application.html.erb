@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
   </head>
 
   <body>
@@ -31,8 +32,8 @@
           <% end %>
           <% if (teacher_signed_in?)  %>
             <li class="nav-item"><a class="nav-link" href="/">Domov</a></li>
-            <li class="nav-item"><a class="nav-link" href="/zapis_znamky/<%= current_teacher.id %>">Zapis známky</a></li>
-            <li class="nav-item"><a class="nav-link" href="/">Zapis absencie</a></li>
+            <li class="nav-item"><a class="nav-link" href="/zapis_znamky/<%= current_teacher.id %>">Zápis známok</a></li>
+            <li class="nav-item"><a class="nav-link" href="/">Zápis absencie</a></li>
           <% end %>
         </ul>
         <ul class="navbar-nav">
