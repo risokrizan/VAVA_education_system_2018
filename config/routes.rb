@@ -34,5 +34,8 @@ Rails.application.routes.draw do
   get "ucitelia/:id/triedy", to: "teachers#ucitel_triedy", as: "ucitel_triedy"
   post "ucitelia/:id/predmety", to: "teachers#add_subject_teacher", as: "ucitel_add_triedy"
   get "ucitelia/:id/predmety/edit", to: "teachers#edit_ucitel_predmet", as: "ucitel_predmet_edit"
+  get "vysvedcenie/:student_id/", to:"teachers#download_report"
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

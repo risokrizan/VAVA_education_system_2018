@@ -21,7 +21,6 @@
           <div class="col-md-6 col-sm-12 mt-20" data-aos="fade-left" data-aos-delay="<%= count * 50 %>">
         <% end %>
         <% count += 1 %>
-          <a href="/zapis_znamky/<%= current_teacher.id %>">
             <div class="card">
               <div class="card-body">
                 <div class="w-20 float-left text-dark">
@@ -35,14 +34,13 @@
                 <div class="w-100">
                   <p class="card-text float-right">
                     <% %>
-                    <%= link_to 'Detail',class_detail_path(triedy),class: "btn btn-outline-warning" %>
+                    <%= link_to 'Detail',class_detail_path(triedy),class: "btn btn-outline-info" %>
                     <%= link_to 'Edit',class_edit_path(triedy),class: "btn btn-outline-warning" %>
                     <%= link_to 'Vymazať', triedy, method: :delete, data: { confirm: 'Ste si istý?' },class: "btn btn-outline-danger" %>
                   </p>
                 </div>
               </div>
             </div>
-          </a>
         </div>
       <% end %>
     </div>

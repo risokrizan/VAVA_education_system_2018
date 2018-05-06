@@ -114,6 +114,7 @@ class TeachersController < ApplicationController
     end
   end
 
+
   def teachers_managment
     @teachers = ActiveRecord::Base.connection.execute("SELECT * FROM teachers")
   end
@@ -146,6 +147,15 @@ class TeachersController < ApplicationController
         format.json {render json: @tes.errors, status: :unprocessable_entity}
       end
     end
+
+  def download_report
+    id_ziaka = params[:student_id].to_s
+    @info = ActiveRecord::Base.connection.execute(
+        "SELECT students.name stname, students.birth_date, res.* FROM students JOIN
+          (SELECT subjects.name, grades.students_id, ROUND(avg(grades.value), 0) FROM subjects JOIN grades ON grades.subjects_id = subjects.id
+          GROUP BY subjects.name, grades.students_id) res ON students.id = res.students_id
+          WHERE students_id = "+id_ziaka)
+
   end
 
   private
