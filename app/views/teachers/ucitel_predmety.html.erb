@@ -1,0 +1,41 @@
+<% if @predmety == NIL %>
+  <h3 class="alert alert-danger">Nie sú zadané žiadne absencie.</h3>
+<% else %>
+  <div class="row">
+    <div class="col-lg-4 pt-3 pl-5 pr-5 bg-light height-max">
+      <h1 class="display-4">
+        Prehľad absencií žiakov
+      </h1>
+      <p class="text-muted">Prehľad absencií jednotlivých žiakov.</p>
+      <hr>
+      <%= render 'edit_teacher_predmet', teache_subject: @predmety %>
+
+    </div>
+    <div class="col-lg-8 pt-3 pr-5 height-max">
+      <div style="margin-bottom: 10px; text-align: right">
+        <button class="btn btn-success" id="btnExport">Exportovať</button>
+      </div>
+      <table class="table table-sm" id="tableWrapper">
+        <thead class="thead-red">
+        <tr>
+          <th scope="col">Predmet</th>
+          <th scope="col">Obťiažnosť</th>
+          <th scope="col">Počet kreditov</th>
+          <th scope="col" colspan="2">Akcie</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @predmety.each do |ucitelia| %>
+          <tr>
+            <th scope="row"><%= ucitelia.fetch('prname') %></th>
+            <td><%= ucitelia.fetch('obt') %></td>
+            <td><%= ucitelia.fetch('pkreditov') %></td>
+            <td><%= link_to 'Edit',ucitel_predmet_edit_path(ucitelia),class: "btn btn-warning" %></td>
+
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>

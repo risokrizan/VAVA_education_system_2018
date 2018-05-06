@@ -28,6 +28,11 @@ Rails.application.routes.draw do
   post "triedy/:teach_id", to: "teachers#add_classes"
   get "triedy/:teach_id/:class_id",  to:"teachers#class_detail", as: "class_detail"
   get "triedy/:teach_id/:class_id/edit/:stud_id", to:"teachers#edit_triedy_ziaka", as: "student_class_edit"
-
+  get "ucitelia", to:"teachers#teachers_managment", as: "ucitelia_home"
+  get "ucitelia/:id", to: "teachers#rozcestnik", as: "rozcestnik_pre_ucitelov"
+  get "ucitelia/:id/predmety", to: "teachers#ucitel_predmety", as: "ucitel_predmety"
+  get "ucitelia/:id/triedy", to: "teachers#ucitel_triedy", as: "ucitel_triedy"
+  post "ucitelia/:id/predmety", to: "teachers#add_subject_teacher", as: "ucitel_add_triedy"
+  get "ucitelia/:id/predmety/edit", to: "teachers#edit_ucitel_predmet", as: "ucitel_predmet_edit"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

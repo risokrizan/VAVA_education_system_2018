@@ -1,0 +1,30 @@
+<% if @subject == NIL %>
+  <%= form_for(:techersub, local: true) do |form| %>
+
+
+    <div class="form-group dropup">
+      <%= form.label :Predmet %>
+      <%= form.collection_select(:subjects_id, Subject.all, :id, :name, {:prompt => 'Vyber predmet'}, {class: 'form-control'}) %>
+    </div>
+    <%= form.hidden_field :teachers_id, value: params[:id] %>
+    <div class="actions">
+      <%= form.submit :class => 'btn btn-red' %>
+    </div>
+
+  <% end %>
+
+<% else %>
+  <%= form_for(@subject, local: true) do |form| %>
+
+
+    <div class="form-group dropup">
+      <%= form.label :Predmet %>
+      <%= form.collection_select(:subjects_id, Subject.all, :id, :name, {:prompt => 'Vyber predmet'}, {class: 'form-control'}) %>
+    </div>
+
+    <%= form.hidden_field :teachers_id, value: params[:id] %>
+    <div class="actions">
+      <%= form.submit :class => 'btn btn-red' %>
+    </div>
+  <% end %>
+<% end %>

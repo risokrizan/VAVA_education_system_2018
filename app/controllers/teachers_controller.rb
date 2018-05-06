@@ -91,12 +91,17 @@ class TeachersController < ApplicationController
     @student = Student.find(params[:stud_id])
   end
 
+  def edit_ucitel_predmet
+    @predmety = TeacherSubject.find(params[:id])
+  end
+
   def all_classes
     id_ucitela = params[:teach_id]
     if(id_ucitela.to_i == current_teacher.id)
       @all_classes = ActiveRecord::Base.connection.execute("SELECT * FROM classes")
     end
   end
+
   def class_detail
     id_ucitela = params[:teach_id]
     id_triedy = params[:class_id].to_s
@@ -109,6 +114,39 @@ class TeachersController < ApplicationController
     end
   end
 
+  def teachers_managment
+    @teachers = ActiveRecord::Base.connection.execute("SELECT * FROM teachers")
+  end
+
+  def rozcestnik
+  end
+
+  def ucitel_predmety
+    @predmety = ActiveRecord::Base.connection.execute("
+    SELECT teachers.id as tid,s2.name as prname,s2.difficulty as obt,s2.credits as pkreditov FROM teachers
+    JOIN teacher_subjects subject ON teachers.id = subject.teachers_id
+    JOIN subjects s2 ON subject.subjects_id = s2.id
+    WHERE (teachers.id = "+params[:id].to_s+")
+")
+  end
+
+  def ucitel_triedy
+
+  end
+
+  def add_subject_teacher
+    @tes =TeacherSubject.new(tes_params)
+
+    respond_to do |format|
+      if @tes.save
+        format.html {redirect_to ucitel_predmety_path, notice: 'Predmet úspešne pridaná'}
+        #format.json {render :show, status: :created, location: @grade}
+      else
+        format.html {render :ucitel_predmety}
+        format.json {render json: @tes.errors, status: :unprocessable_entity}
+      end
+    end
+  end
 
   private
   def grade_params
@@ -119,6 +157,9 @@ class TeachersController < ApplicationController
   end
   def classes_params
     params.require(:triedy).permit(:name)
+  end
+  def tes_params
+    params.require(:techersub).permit(:teachers_id,:subjects_id)
   end
 
 end
