@@ -38,7 +38,7 @@
             <td><%= znamky.fetch('znamka') %></td>
             <td><%= DateTime.parse(znamky.fetch('datum')).strftime('%a %b %d %H:%M:%S %Y') %></td>
             <%znamky[:grade_id]=znamky.fetch('grade_id').to_i%>
-            <td><%= link_to 'Edit',znamky_edit_path(znamky),class: "btn btn-warning" %></td>
+            <td><%= link_to 'Upraviť',znamky_edit_path(znamky),class: "btn btn-warning" %></td>
             <td><%= link_to 'Vymazať', znamky, method: :delete, data: { confirm: 'Ste si istý?' },class: "btn btn-danger" %></td>
           </tr>
         <% end %>

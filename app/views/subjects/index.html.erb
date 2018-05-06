@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-lg-4 pt-3 pl-5 pr-5 bg-light height-max">
-    <h1 class="display-4">
+    <h1 class="display-4" data-aos="fade-right">
       <i class="fas fa-book"></i> Manažment predmetov
     </h1>
     <p class="text-muted">Táto sekcia slúži na jednoduchú manipuláciu s predmetmi.</p>
@@ -13,7 +13,7 @@
       <%= link_to 'Nový predmet', new_subject_path, :class => "btn btn-red text-white" %>
       <button class="btn btn-success" id="btnExport">Exportovať</button>
     </div>
-    <table class="table table-sm" id="tableWrapper">
+    <table class="table table-sm" id="tableWrapper" data-aos="fade-up">
       <thead class="thead-red">
       <tr>
         <th scope="col">Názov</th>
