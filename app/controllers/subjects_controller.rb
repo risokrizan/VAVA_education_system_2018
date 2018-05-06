@@ -5,7 +5,7 @@ class SubjectsController < ApplicationController
   # GET /subjects
   # GET /subjects.json
   def index
-    @subjects = Subject.all
+    @subjects = Subject.all.to_a.paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /subjects/1
