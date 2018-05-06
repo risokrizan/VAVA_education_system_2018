@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :subject_name %>
+  <div class="form-group">
+    <%= form.label :Názov %>
+    <%= form.text_field :name, id: :subject_name, :class => 'form-control'  %>
   </div>
 
-  <div class="field">
-    <%= form.label :difficulty %>
-    <%= form.number_field :difficulty, id: :subject_difficulty %>
+  <div class="form-group">
+    <%= form.label :Obtiažnosť %>
+    <%= form.number_field :difficulty, id: :subject_difficulty, :class => 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :credits %>
-    <%= form.number_field :credits, id: :subject_credits %>
+  <div class="form-group">
+    <%= form.label :Počet_kreditov %>
+    <%= form.number_field :credits, id: :subject_credits, :class => 'form-control'  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => 'btn btn-red' %>
   </div>
 <% end %>

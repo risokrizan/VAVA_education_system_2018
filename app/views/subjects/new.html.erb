@@ -1,5 +1,13 @@
-<h1>New Subject</h1>
+<div class="jumbotron jumbotron-fluid bg-light">
+  <div class="container">
+    <h1 class="display-4">Pridať nový predmet <%= link_to 'Naspäť na prehľad predmetov', subjects_path, :class => "btn btn-red btn-lg float-right" %></h1>
+  </div>
+</div>
 
-<%= render 'form', subject: @subject %>
+<div class="container">
+  <%= render 'form', subject: @subject %>
+</div>
 
-<%= link_to 'Back', subjects_path %>
+
+
+

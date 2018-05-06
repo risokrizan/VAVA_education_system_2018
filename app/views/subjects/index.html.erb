@@ -1,31 +1,42 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-lg-4 pt-3 pl-5 pr-5 bg-light height-max">
+    <h1 class="display-4">
+      <i class="fas fa-book"></i> Manažment predmetov
+    </h1>
+    <p class="text-muted">Táto sekcia slúži na jednoduchú manipuláciu s predmetmi.</p>
+    <hr class="my-4">
 
-<h1>Subjects</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Difficulty</th>
-      <th>Credits</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @subjects.each do |subject| %>
+  </div>
+  <div class="col-lg-8 pt-3 pr-5 height-max">
+    <div style="margin-bottom: 10px; text-align: right">
+      <%= link_to 'Nový predmet', new_subject_path, :class => "btn btn-red text-white" %>
+      <button class="btn btn-success" id="btnExport">Exportovať</button>
+    </div>
+    <table class="table table-sm" id="tableWrapper">
+      <thead class="thead-red">
       <tr>
-        <td><%= subject.name %></td>
-        <td><%= subject.difficulty %></td>
-        <td><%= subject.credits %></td>
-        <td><%= link_to 'Show', subject %></td>
-        <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
-        <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope="col">Názov</th>
+        <th scope="col">Obtiažnosť</th>
+        <th scope="col">Kredity</th>
+        <th scope="col" colspan="3">Akcie</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+      <% @subjects.each do |subject| %>
+        <tr>
+          <th scope="row"><%= subject.name %></th>
+          <td><%= subject.difficulty %></td>
+          <td><%= subject.credits %></td>
+          <td>
+            <%= link_to 'Upraviť', edit_subject_path(subject), :class => "btn btn-warning" %>
+            <%= link_to 'Vymazať', subject, method: :delete, data: {confirm: 'Ste si istý?'}, :class => "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<br>
 
-<%= link_to 'New Subject', new_subject_path %>

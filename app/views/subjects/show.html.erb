@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron jumbotron-fluid bg-light">
+  <div class="container">
+    <h1 class="display-4">Pridať nový predmet <%= link_to 'Upraviť predmet', edit_subject_path(@subject), :class => "btn btn-warning btn-lg float-right" %> <%= link_to 'Naspäť na prehľad predmetov', subjects_path, :class => "btn btn-red btn-lg float-right" %></h1>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @subject.name %>
-</p>
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Názov</th>
+      <th scope="col">Náročnosť</th>
+      <th scope="col">Počet kreditov</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= @subject.name %></td>
+      <td><%= @subject.difficulty %></td>
+      <td><%= @subject.credits %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
-<p>
-  <strong>Difficulty:</strong>
-  <%= @subject.difficulty %>
-</p>
 
-<p>
-  <strong>Credits:</strong>
-  <%= @subject.credits %>
-</p>
-
-<%= link_to 'Edit', edit_subject_path(@subject) %> |
-<%= link_to 'Back', subjects_path %>
