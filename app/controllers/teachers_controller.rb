@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  before_action :authenticate_teacher!, only: []
+  before_action :authenticate_teacher!
 
   def show_teacher_grades
 
@@ -179,6 +179,31 @@ class TeachersController < ApplicationController
     end
   end
 
+  def destroy_teacher_classe
+    @teacher_classe=TeacherClasse.find(params[:tcid])
+    TeacherClasse.transaction do
+      @teacher_classe.destroy
+      respond_to do |format|
+        format.html { redirect_to ucitel_triedy_path, notice: 'Známka zmazaná' }
+        format.json { head :no_content }
+      end
+    end
+  end
+
+  def add_class_teacher
+    @teacher_classe =TeacherClasse.new(teacher_class_params)
+
+    respond_to do |format|
+      if @teacher_classe.save
+        format.html {redirect_to ucitel_triedy_path, notice: 'Trieda úspešne pridaná'}
+        #format.json {render :show, status: :created, location: @grade}
+      else
+        format.html {render :ucitel_triedy}
+        format.json {render json: @tes.errors, status: :unprocessable_entity}
+      end
+    end
+  end
+
   private
   def grade_params
     params.require(:grade).permit(:value, :students_id, :subjects_id)
@@ -191,6 +216,9 @@ class TeachersController < ApplicationController
   end
   def tes_params
     params.require(:teacher_subject).permit(:teachers_id,:subjects_id)
+  end
+  def teacher_class_params
+    params.require(:teach_subject).permit(:teachers_id,:classes_id)
   end
 
 end

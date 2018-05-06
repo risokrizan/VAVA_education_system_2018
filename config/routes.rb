@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   post "ucitelia/:id/predmety", to: "teachers#add_subject_teacher", as: "ucitel_add_triedy"
   get "vysvedcenie/:student_id/", to:"teachers#download_report"
   delete "ucitelia/:id/predmety", to: "teachers#destroy_teacher_subject"
-
+  delete "ucitelia/:id/triedy", to: "teachers#destroy_teacher_classe"
+  post "ucitelia/:id/triedy", to: "teachers#add_class_teacher"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
