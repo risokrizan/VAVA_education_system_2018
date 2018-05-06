@@ -1,4 +1,4 @@
-<% if @predmety == NIL %>
+<% if @teacher_classe == NIL %>
   <h3 class="alert alert-danger">Nie sú zadané žiadne absencie.</h3>
 <% else %>
   <div class="row">
@@ -7,7 +7,6 @@
         Prehľad predmetov učiteľa
       </h1>
       <hr>
-      <%= render 'edit_teacher_predmet', teache_subject: @predmety %>
 
     </div>
     <div class="col-lg-8 pt-3 pr-5 height-max">
@@ -18,19 +17,15 @@
         <thead class="thead-red">
         <tr>
           <th scope="col">Predmet</th>
-          <th scope="col">Obťiažnosť</th>
-          <th scope="col">Počet kreditov</th>
           <th scope="col" colspan="2">Akcie</th>
         </tr>
         </thead>
         <tbody>
-        <% @predmety.each do |ucitelia| %>
+        <% @teacher_classe.each do |teachclasse| %>
           <tr>
-            <th scope="row"><%= ucitelia.fetch('prname') %></th>
-            <td><%= ucitelia.fetch('obt') %></td>
-            <td><%= ucitelia.fetch('pkreditov') %></td>
-            <% ucitelia.fetch('sid') %>
-            <td><%= link_to 'Vymazať', ucitelia, method: :delete, data: { confirm: 'Ste si istý?' },class: "btn btn-danger" %></td>
+            <th scope="row"><%= teachclasse.fetch('trname') %></th>
+            <% teachclasse.fetch('tcid') %>
+            <td><%= link_to 'Vymazať', teachclasse, method: :delete, data: { confirm: 'Ste si istý?' },class: "btn btn-danger" %></td>
           </tr>
         <% end %>
         </tbody>

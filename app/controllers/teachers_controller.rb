@@ -92,7 +92,7 @@ class TeachersController < ApplicationController
   end
 
   def edit_ucitel_predmet
-    @predmety = TeacherSubject.find(params[:id])
+    @teacher_subjects = TeacherSubject.find(params[:id])
   end
 
   def all_classes
@@ -128,7 +128,7 @@ class TeachersController < ApplicationController
 
   def ucitel_predmety
     @predmety = ActiveRecord::Base.connection.execute("
-    SELECT teachers.id as tid,s2.name as prname,s2.difficulty as obt,s2.credits as pkreditov FROM teachers
+    SELECT teachers.id as tid,s2.name as prname,s2.difficulty as obt,s2.credits as pkreditov,subject.id as sid  FROM teachers
     JOIN teacher_subjects subject ON teachers.id = subject.teachers_id
     JOIN subjects s2 ON subject.subjects_id = s2.id
     WHERE (teachers.id = "+params[:id].to_s+")
@@ -136,7 +136,12 @@ class TeachersController < ApplicationController
   end
 
   def ucitel_triedy
-
+    @teacher_classe= ActiveRecord::Base.connection.execute("
+    SELECT c2.name as trname, tc.id as tcid FROM teachers
+    JOIN teacher_classes tc ON teachers.id = tc.teachers_id
+    JOIN classes c2 ON tc.classes_id = c2.id
+    WHERE (teachers.id = "+params[:id].to_s+")
+    ")
   end
 
   def add_subject_teacher
@@ -163,6 +168,17 @@ class TeachersController < ApplicationController
 
   end
 
+  def destroy_teacher_subject
+    @teacher_subject=TeacherSubject.find(params[:sid])
+    TeacherSubject.transaction do
+      @teacher_subject.destroy
+      respond_to do |format|
+        format.html { redirect_to ucitel_predmety_path, notice: 'Známka zmazaná' }
+        format.json { head :no_content }
+      end
+    end
+  end
+
   private
   def grade_params
     params.require(:grade).permit(:value, :students_id, :subjects_id)
@@ -174,7 +190,7 @@ class TeachersController < ApplicationController
     params.require(:triedy).permit(:name)
   end
   def tes_params
-    params.require(:techersub).permit(:teachers_id,:subjects_id)
+    params.require(:teacher_subject).permit(:teachers_id,:subjects_id)
   end
 
 end
