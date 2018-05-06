@@ -1,0 +1,44 @@
+<% if @teachers == NIL %>
+  <h3 class="alert alert-danger">Nie sú zadané žiadne absencie.</h3>
+<% else %>
+  <div class="row">
+    <div class="col-lg-4 pt-3 pl-5 pr-5 bg-light height-max">
+      <h1 class="display-4">
+        Prehľad absencií žiakov
+      </h1>
+      <p class="text-muted">Prehľad absencií jednotlivých žiakov.</p>
+      <hr>
+
+    </div>
+    <div class="col-lg-8 pt-3 pr-5 height-max">
+      <div style="margin-bottom: 10px; text-align: right">
+        <button class="btn btn-success" id="btnExport">Exportovať</button>
+      </div>
+      <table class="table table-sm" id="tableWrapper">
+        <thead class="thead-red">
+        <tr>
+          <th scope="col">Meno</th>
+          <th scope="col">Dátum narodenia</th>
+          <th scope="col">Počet kreditov</th>
+          <th scope="col">email</th>
+          <th scope="col">Naposledy prihlaseny</th>
+          <th scope="col" colspan="2">Akcie</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @teachers.each do |ucitelia| %>
+          <tr>
+            <th scope="row"><%= ucitelia.fetch('name') %></th>
+            <td><%= ucitelia.fetch('birth_date') %></td>
+            <td><%= ucitelia.fetch('credit_number') %></td>
+            <td><%= ucitelia.fetch('email') %></td>
+            <td><%= ucitelia.fetch('last_sign_in_at') %></td>
+            <% ucitelia[:id]=ucitelia.fetch('id').to_i%>
+            <td><%= link_to 'Edit',rozcestnik_pre_ucitelov_path(ucitelia),class: "btn btn-warning" %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
