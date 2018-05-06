@@ -1,5 +1,5 @@
 <% if @detail == NIL %>
-  <h3 class="alert alert-danger">Nie sú zadané žiadne absencie.</h3>
+  <h3 class="alert alert-danger">V tejto triedie nie sú žiadny žiaci.</h3>
 <% else %>
 
   <div class="jumbotron jumbotron-fluid bg-light">
@@ -28,8 +28,14 @@
               <hr>
               <ul>
                 <li><%= details.fetch('email') %></li>
-                <li><%= details.fetch('bdate') %></li>
-                <li><%= details.fetch('nprihlaseny') %></li>
+                <li>
+                  <strong>Dátum narodenia:</strong><br>
+                  <%= details.fetch('bdate') %>
+                </li>
+                <li>
+                  <strong>Naposledny prihlásený:</strong><br>
+                  <%= DateTime.parse(details.fetch('nprihlaseny')).strftime('%a %b %d %H:%M:%S %Y') %>
+                </li>
                 <li><a href="/vysvedcenie/<%= details.fetch('sid') %>" class="btn btn-link">Stiahnuť vysvedčenie</a></li>
               </ul>
             </div>

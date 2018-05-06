@@ -98,7 +98,11 @@ class TeachersController < ApplicationController
   def all_classes
     id_ucitela = params[:teach_id]
     if(id_ucitela.to_i == current_teacher.id)
-      @all_classes = ActiveRecord::Base.connection.execute("SELECT * FROM classes")
+      @all_classes = ActiveRecord::Base.connection.execute(
+          "SELECT classes.id, classes.name, COUNT(students.name) FROM classes
+           JOIN students ON classes.id = students.classes_id
+           GROUP BY classes.name, classes.id"
+      )
     end
   end
 

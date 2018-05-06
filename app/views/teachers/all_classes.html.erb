@@ -29,7 +29,7 @@
                 <% triedy[:class_id] = triedy.fetch('id').to_i %>
                 <% triedy[:id] = triedy.fetch('id').to_i %>
                 <div class="w-80 float-left">
-                  <h5 class="card-title text-dark float-right">Počet žiakov v triede: <strong>21</strong></h5>
+                  <h5 class="card-title text-dark float-right">Počet žiakov v triede: <strong><%= triedy.fetch('count') %></strong></h5>
                 </div>
                 <div class="w-100">
                   <p class="card-text float-right">

@@ -5,7 +5,6 @@
     <div class="col-lg-4 pt-3 pl-5 pr-5 bg-light height-max">
       <h1 class="display-4">
         Výpis absencií
-        <b><%= Student.find(params[:stud_id].to_i).name %></b>:
       </h1>
       <p class="text-muted">Prehľad známok jednotlivých predmetov.</p>
       <hr>
@@ -32,7 +31,7 @@
             <td><%= absencie.fetch('trname') %></td>
             <td><%= absencie.fetch('datum') %></td>
             <td><%= absencie.fetch('dovod') %></td>
-            <td><%= absencie.fetch('datum_dorucenia') %></td>
+            <td><%= DateTime.parse(absencie.fetch('datum_dorucenia')).strftime('%a %b %d %H:%M:%S %Y') %></td>
           </tr>
         <% end %>
         </tbody>

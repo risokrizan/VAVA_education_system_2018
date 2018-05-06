@@ -53,7 +53,7 @@
             <td><%= absencie.fetch('trname') %></td>
             <td><%= absencie.fetch('datum') %></td>
             <td><%= absencie.fetch('dovod') %></td>
-            <td><%= absencie.fetch('datum_dorucenia') %></td>
+            <td><%= DateTime.parse(absencie.fetch('datum_dorucenia')).strftime('%a %b %d %H:%M:%S %Y') %></td>
             <%absencie[:abs_id]=absencie.fetch('absence_id').to_i%>
             <td><%= link_to 'Edit',absencie_edit_path(absencie),class: "btn btn-warning" %></td>
             <td><%= link_to 'Vymazať', absencie, method: :delete, data: { confirm: 'Ste si istý?' },class: "btn btn-danger" %></td>
