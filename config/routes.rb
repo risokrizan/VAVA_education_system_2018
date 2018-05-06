@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post "triedy/:teach_id", to: "teachers#add_classes"
   get "triedy/:teach_id/:class_id",  to:"teachers#class_detail", as: "class_detail"
   get "triedy/:teach_id/:class_id/edit/:stud_id", to:"teachers#edit_triedy_ziaka", as: "student_class_edit"
+  get "vysvedcenie/:student_id/", to:"teachers#download_report"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
