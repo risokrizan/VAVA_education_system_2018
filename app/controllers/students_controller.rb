@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
           JOIN grades g ON students.id = g.students_id
           JOIN subjects s2 ON g.subjects_id = s2.id
           WHERE (students.id = " + id_ziaka + ")
-        ")
+        ").to_a.paginate(:page => params[:page], :per_page => 20)
     end
   end
 
@@ -22,7 +22,7 @@ class StudentsController < ApplicationController
         JOIN students s ON absences.students_id = s.id
         JOIN classes c ON s.classes_id = c.id
         WHERE (s.id = " + id_ziaka + ")
-       ")
+       ").to_a.paginate(:page => params[:page], :per_page => 20)
     end
   end
 

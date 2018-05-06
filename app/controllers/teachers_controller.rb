@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
   before_action :authenticate_teacher!
-
+  require 'will_paginate'
   def show_teacher_grades
 
     id_ucitela = params[:teach_id]
@@ -14,7 +14,7 @@ class TeachersController < ApplicationController
         JOIN teachers t ON s4.teachers_id = t.id
         JOIN classes c2 ON s2.classes_id = c2.id
       WHERE (t.id=" + id_ucitela + ")
-      ")
+      ").to_a.paginate(:page => params[:page], :per_page => 20)
 
       @all_classes = ActiveRecord::Base.connection.execute("SELECT id, name FROM classes")
       @all_students = ActiveRecord::Base.connection.execute("SELECT id, name FROM students")
@@ -29,7 +29,7 @@ class TeachersController < ApplicationController
           "SELECT absences.id as absence_id, s.name as stname, c.name as trname, absences.when as datum, absences.reason as dovod, absences.created_at as datum_dorucenia FROM absences
             JOIN students s ON absences.students_id = s.id
             JOIN classes c ON s.classes_id = c.id
-          ")
+          ").to_a.paginate(:page => params[:page], :per_page => 20)
       @all_classes = ActiveRecord::Base.connection.execute("SELECT id, name FROM classes")
       @all_students = ActiveRecord::Base.connection.execute("SELECT id, name FROM students")
     end
