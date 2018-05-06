@@ -147,6 +147,7 @@ class TeachersController < ApplicationController
         format.json {render json: @tes.errors, status: :unprocessable_entity}
       end
     end
+  end
 
   def download_report
     id_ziaka = params[:student_id].to_s
