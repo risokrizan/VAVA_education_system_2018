@@ -2,7 +2,7 @@ class AbsencesController < ApplicationController
   def show
 
   end
-
+#edit absencie
   def update
     @absence=Absence.find(params[:id])
     respond_to do |format|
@@ -15,6 +15,7 @@ class AbsencesController < ApplicationController
       end
     end
   end
+  #vymazať absenciu
   def destroy
     Absence.transaction do
       @absence=Absence.find(params[:abs_id])

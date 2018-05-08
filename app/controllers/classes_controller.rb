@@ -2,7 +2,7 @@ class ClassesController < ApplicationController
   def show
 
   end
-
+#edit triedy
   def update
     @triedy=Classe.find(params[:id])
     respond_to do |format|
@@ -15,7 +15,7 @@ class ClassesController < ApplicationController
       end
     end
   end
-
+#zmazanie triedy
   def destroy
     Classe.transaction do
       @triedy=Classe.find(params[:id])

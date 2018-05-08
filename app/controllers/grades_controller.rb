@@ -3,7 +3,7 @@ class GradesController < ApplicationController
 def show
 
 end
-
+#edit známky
   def update
     @grade=Grade.find(params[:id])
     respond_to do |format|
@@ -16,7 +16,7 @@ end
       end
     end
   end
-
+#zmazanie známky
 def destroy
   Grade.transaction do
     @grade=Grade.find(params[:grade_id])

@@ -1,6 +1,7 @@
 class TeachersController < ApplicationController
   before_action :authenticate_teacher!
   require 'will_paginate'
+  #zobraz známky udelené konkrétnym učiteľom
   def show_teacher_grades
 
     id_ucitela = params[:teach_id]
@@ -21,7 +22,7 @@ class TeachersController < ApplicationController
     end
 
   end
-
+#zobraz absencie udelené konkrétnym učiteľom
   def show_all_absences
     id_ucitela = params[:teach_id]
     if(id_ucitela.to_i == current_teacher.id)
@@ -34,7 +35,7 @@ class TeachersController < ApplicationController
       @all_students = ActiveRecord::Base.connection.execute("SELECT id, name FROM students")
     end
   end
-
+#pridaj absenciu
   def add_absence
     @absence = Absence.new(absence_params)
 
@@ -47,7 +48,7 @@ class TeachersController < ApplicationController
       end
     end
   end
-
+#pridaj známku
   def add_grade
     @grade = Grade.new(grade_params)
 
@@ -61,6 +62,7 @@ class TeachersController < ApplicationController
       end
     end
   end
+  #pridaj triedu
   def add_classes
     @triedy =Classe.new(classes_params)
 
@@ -94,7 +96,7 @@ class TeachersController < ApplicationController
   def edit_ucitel_predmet
     @teacher_subjects = TeacherSubject.find(params[:id])
   end
-
+#zobraz všetky triedy
   def all_classes
     id_ucitela = params[:teach_id]
     if(id_ucitela.to_i == current_teacher.id)
@@ -105,7 +107,7 @@ class TeachersController < ApplicationController
       )
     end
   end
-
+#zobraz žiakov danej triedy
   def class_detail
     id_ucitela = params[:teach_id]
     id_triedy = params[:class_id].to_s
@@ -125,7 +127,7 @@ class TeachersController < ApplicationController
 
   def rozcestnik
   end
-
+#zobraz predmety daneho ucitela
   def ucitel_predmety
     @predmety = ActiveRecord::Base.connection.execute("
     SELECT teachers.id as tid,s2.name as prname,s2.difficulty as obt,s2.credits as pkreditov,subject.id as sid  FROM teachers
@@ -134,7 +136,7 @@ class TeachersController < ApplicationController
     WHERE (teachers.id = "+params[:id].to_s+")
 ")
   end
-
+#zobraz triedy daneho ucitela
   def ucitel_triedy
     @teacher_classe= ActiveRecord::Base.connection.execute("
     SELECT c2.name as trname, tc.id as tcid FROM teachers
@@ -144,6 +146,7 @@ class TeachersController < ApplicationController
     ")
   end
 
+  #pridaj predmet učitelovi
   def add_subject_teacher
     @tes =TeacherSubject.new(tes_params)
 
@@ -157,7 +160,7 @@ class TeachersController < ApplicationController
       end
     end
   end
-
+#stiahni vysvedčenie
   def download_report
     id_ziaka = params[:student_id].to_s
     @info = ActiveRecord::Base.connection.execute(
@@ -167,7 +170,7 @@ class TeachersController < ApplicationController
           WHERE students_id = "+id_ziaka)
 
   end
-
+#zmaž predmet učitelovi
   def destroy_teacher_subject
     @teacher_subject=TeacherSubject.find(params[:sid])
     TeacherSubject.transaction do
@@ -178,7 +181,7 @@ class TeachersController < ApplicationController
       end
     end
   end
-
+#zmaž triedu učitelov
   def destroy_teacher_classe
     @teacher_classe=TeacherClasse.find(params[:tcid])
     TeacherClasse.transaction do
@@ -189,7 +192,7 @@ class TeachersController < ApplicationController
       end
     end
   end
-
+#pridaj triedu ucitelovi
   def add_class_teacher
     @teacher_classe =TeacherClasse.new(teacher_class_params)
 

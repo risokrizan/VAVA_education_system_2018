@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   require 'will_paginate/array'
 
   protected
+  #vyžadovanée hodnoty registracie
   def configure_permitted_parameters
 
     #devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name,:email,:encrypted_password,:classes_id,:birth_date) }
