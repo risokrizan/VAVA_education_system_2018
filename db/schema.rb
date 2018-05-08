@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180501215003) do
     t.date "when"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "students_id"
+    t.bigint "students_id", null: false
     t.string "reason"
     t.index ["students_id"], name: "index_absences_on_students_id"
   end
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20180501215003) do
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "students_id"
-    t.bigint "subjects_id"
+    t.bigint "students_id", null: false
+    t.bigint "subjects_id", null: false
     t.index ["students_id"], name: "index_grades_on_students_id"
     t.index ["subjects_id"], name: "index_grades_on_subjects_id"
   end
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20180501215003) do
     t.date "birth_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "classes_id"
+    t.bigint "classes_id", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 20180501215003) do
   create_table "teacher_classes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "teachers_id"
-    t.bigint "classes_id"
+    t.bigint "teachers_id", null: false
+    t.bigint "classes_id", null: false
     t.index ["classes_id"], name: "index_teacher_classes_on_classes_id"
     t.index ["teachers_id"], name: "index_teacher_classes_on_teachers_id"
   end
@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(version: 20180501215003) do
   create_table "teacher_subjects", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "teachers_id"
-    t.bigint "subjects_id"
+    t.bigint "teachers_id", null: false
+    t.bigint "subjects_id", null: false
     t.index ["subjects_id"], name: "index_teacher_subjects_on_subjects_id"
     t.index ["teachers_id"], name: "index_teacher_subjects_on_teachers_id"
   end
@@ -112,12 +112,12 @@ ActiveRecord::Schema.define(version: 20180501215003) do
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "absences", "students", column: "students_id"
-  add_foreign_key "grades", "students", column: "students_id"
-  add_foreign_key "grades", "subjects", column: "subjects_id"
-  add_foreign_key "students", "classes", column: "classes_id"
-  add_foreign_key "teacher_classes", "classes", column: "classes_id"
-  add_foreign_key "teacher_classes", "teachers", column: "teachers_id"
-  add_foreign_key "teacher_subjects", "subjects", column: "subjects_id"
-  add_foreign_key "teacher_subjects", "teachers", column: "teachers_id"
+  add_foreign_key "absences", "students", column: "students_id", on_delete: :cascade
+  add_foreign_key "grades", "students", column: "students_id", on_delete: :cascade
+  add_foreign_key "grades", "subjects", column: "subjects_id", on_delete: :cascade
+  add_foreign_key "students", "classes", column: "classes_id", on_delete: :cascade
+  add_foreign_key "teacher_classes", "classes", column: "classes_id", on_delete: :cascade
+  add_foreign_key "teacher_classes", "teachers", column: "teachers_id", on_delete: :cascade
+  add_foreign_key "teacher_subjects", "subjects", column: "subjects_id", on_delete: :cascade
+  add_foreign_key "teacher_subjects", "teachers", column: "teachers_id", on_delete: :cascade
 end
