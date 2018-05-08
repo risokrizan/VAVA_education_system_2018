@@ -1,4 +1,4 @@
-#Dokumentacia
+# Dokumentacia
 Projekt Školský systém R&A EDU na predmet Vývoj aplikácií s viacvrstvovou architektúrou. 
 ##	Popis projektu
 Táto aplikácia predstavuje systém na manažment štúdia pre učiteľov a študentov. Študenti si v ňom môžu prezerať svoje známky a prípadné absencie, zatiaľ čo učitelia reprezentujú tzv. administrátorov, teda učiteľské účty sú administrátorské. 
