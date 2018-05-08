@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
     before_action :authenticate_student!, except: [ :index]
     before_action :authenticate_teacher!, except: [ :index]
-
+#Priprava udajov pre grafy na landing page
   def index
     @pocet_ucitelov = Teacher.all.count
     @pocet_studentov = Student.all.count

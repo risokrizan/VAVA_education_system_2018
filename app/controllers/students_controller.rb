@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :authenticate_student!, only: [:show_all_grades, :show_all_absence]
 
-
+#zobraz všetky známky žiaka
   def show_all_grades
     id_ziaka = params[:stud_id]
     if (id_ziaka.to_i == current_student.id)
@@ -13,7 +13,7 @@ class StudentsController < ApplicationController
         ").to_a.paginate(:page => params[:page], :per_page => 20)
     end
   end
-
+#zobraz všetky absenice žiaka
   def show_all_absence
     id_ziaka = params[:stud_id]
     if (id_ziaka.to_i == current_student.id)
@@ -29,7 +29,7 @@ class StudentsController < ApplicationController
   def show
 
   end
-
+#uprav žiaka
   def update
     @student=Student.find(params[:id])
     respond_to do |format|
