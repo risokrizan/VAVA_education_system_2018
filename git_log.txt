@@ -1,0 +1,443 @@
+commit bdbf806157b173eea7a8e1b2449343b642ca986a
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Tue May 8 22:17:46 2018 +0200
+
+    lol
+
+commit a86ed0c83b384e581a606ff3cdfe6b7f6e039d94
+Merge: 897ed7b d190560
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Tue May 8 21:41:11 2018 +0200
+
+    Merge pull request #10 from risokrizan/delety
+    
+    destroy fix
+
+commit d190560fdae5f9ddb083f2dd880ab47fb6457095
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Tue May 8 21:40:35 2018 +0200
+
+    destroy fix
+
+commit 897ed7bc6e7449bfb43d52346586051c9d79e1fe
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Tue May 8 20:46:54 2018 +0200
+
+    doc + komenty
+
+commit e0e4882f056f9b6c94327d92ed489a0980cfecee
+Merge: 8805172 ba61d73
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Tue May 8 20:40:40 2018 +0200
+
+    Merge pull request #9 from risokrizan/doc
+    
+    dokumentacia
+
+commit ba61d739d561c2579f53500155ba0c5b96b2dd0d
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Tue May 8 20:39:56 2018 +0200
+
+    dokumentacia
+
+commit 880517295582bffcdefec7e7b044e0f75b15726a
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Tue May 8 20:38:20 2018 +0200
+
+    uprava navbaru
+
+commit 22a0d36a1d1465af2398baa0fcf14700d256cad5
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Tue May 8 20:19:09 2018 +0200
+
+    google translate
+
+commit 56a85b6904c22e0403a36873aa6cab4a9e6d26c0
+Merge: d8f986c 78ad8af
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Sun May 6 22:59:04 2018 +0200
+
+    Merge pull request #8 from risokrizan/pagination
+    
+    pagination completed
+
+commit 78ad8af1d27a0981adf3edc92f984c993e316ed5
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sun May 6 22:58:17 2018 +0200
+
+    pagination completed
+
+commit d8f986ca20865d7111aa694eebfc7cf0d75d09cc
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Sun May 6 22:57:53 2018 +0200
+
+    možno final commit
+
+commit 3c940db9183a49982bdf756fa3dfdacca498f05c
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Sun May 6 22:25:52 2018 +0200
+
+    frontend predmetov
+
+commit 3d259cf25bfd0aed9d4f7d5e6e91a67fb8a321ba
+Merge: 2d84439 a511f1b
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Sun May 6 22:00:11 2018 +0200
+
+    Merge pull request #7 from risokrizan/manazment_teacherov
+    
+    Hotovy manazment predmetov a ucitelov
+
+commit a511f1b102cb14aef344267076ebe8c7b30360a4
+Merge: 9463d85 2d84439
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Sun May 6 22:00:04 2018 +0200
+
+    Merge branch 'master' into manazment_teacherov
+
+commit 9463d855b846ee2f6bcdec735fe264fbd5072a26
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sun May 6 21:58:38 2018 +0200
+
+    Hotovy manazment predmetov a ucitelov
+
+commit 2d84439bee57dc6b60924c82a5f0689a2909f8f1
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Sun May 6 21:58:25 2018 +0200
+
+    daas
+
+commit 94a1b105ba4710b3539c83dd1c5bc8505e6b6ae7
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sun May 6 21:32:11 2018 +0200
+
+    aaaaa
+
+commit bbace87db0aed80718ef5d99c6b041915ce7faf9
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Sun May 6 14:10:47 2018 +0200
+
+    pocet ludi v triede
+
+commit e0048235e7358a968ed6d480a31ae5ab9f049d01
+Merge: daeeb94 1a4c081
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Sun May 6 03:42:22 2018 +0200
+
+    Merge pull request #6 from risokrizan/teacher_management
+    
+    syntax fix
+
+commit 1a4c081cf2b61651fd62931f3ba4f16957ea5a56
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sun May 6 03:41:18 2018 +0200
+
+    syntax fix
+
+commit daeeb94d09e0378f625d0399ddbdab6c79a54f4f
+Merge: 2007c0e 1e5a5b6
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Sun May 6 03:39:41 2018 +0200
+
+    Merge pull request #5 from risokrizan/teacher_management
+    
+    kukni kolko je hodin 3:37 dofucka
+
+commit 1e5a5b61f7f6eeb979a603faccd33cca977752d8
+Merge: 81785b6 2007c0e
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Sun May 6 03:39:29 2018 +0200
+
+    Merge branch 'master' into teacher_management
+
+commit 81785b6560c8dab5ef4bf2a0033bfe1ef5dca847
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sun May 6 03:37:35 2018 +0200
+
+    kukni kolko je hodin 3:37 dofucka
+
+commit 2007c0ea37408fe8cca2c3d19817e2deaf216a50
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Sun May 6 03:37:31 2018 +0200
+
+    pridanei vysvedcenia, frontendy
+
+commit 6f5818c590436ed08f96f41d43cda2335d2ee0cc
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sun May 6 01:54:41 2018 +0200
+
+    detail
+
+commit c4ed4aa8db6698721e2c2a609afd087b01514acf
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Sun May 6 00:48:37 2018 +0200
+
+    frontend
+
+commit 06fe825112724f7e5c0c036ae693b930bab4a6e4
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sat May 5 23:56:37 2018 +0200
+
+    manazment triedy
+
+commit b8d46e8d11834cf539cf57f52127c08135e8685b
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Sat May 5 17:44:14 2018 +0200
+
+    lol
+
+commit e2dd8bbab36765e567de50c7e52086bb878c125d
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sat May 5 03:12:51 2018 +0200
+
+    rozchodene grafy
+
+commit 3425e028d5d6eb77da98574e7f0c8908079dee12
+Merge: 90d223e 43feb77
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Sat May 5 02:58:13 2018 +0200
+
+    Merge pull request #4 from risokrizan/nova
+    
+    Nova
+
+commit 43feb7798e8ad2495a62815dfbe97d9c36495d87
+Merge: 974a768 90d223e
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Sat May 5 02:58:05 2018 +0200
+
+    Merge branch 'master' into nova
+
+commit 974a7681acb587585d6e95a5f87737739781e650
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sat May 5 02:54:35 2018 +0200
+
+    funguje to ako ma
+
+commit 31582ab8057114ee6595d511de76f87d1c4a63f6
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sat May 5 02:31:06 2018 +0200
+
+    skusanie
+
+commit 90d223e7c38ab4ccc8efacea678de47aa3537d3e
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Sat May 5 02:28:38 2018 +0200
+
+    dasdad
+
+commit 2a3b1433dc69cb53a747b5cd91cf0013a471fa78
+Merge: 8c6cef3 1ac226c
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Sat May 5 02:06:10 2018 +0200
+
+    Merge pull request #3 from risokrizan/riskova_branch
+    
+    funguje edit
+
+commit 1ac226c4c27422f1ee2550f8942d4d384d31e459
+Merge: 7353a4a 8c6cef3
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Sat May 5 02:06:04 2018 +0200
+
+    Merge branch 'master' into riskova_branch
+
+commit 8c6cef3f92a110341b275be1ae0eb049a875804d
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Sat May 5 02:02:59 2018 +0200
+
+    lol
+
+commit 7353a4af236325448060ab33e602711a019cd93a
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sat May 5 02:02:16 2018 +0200
+
+    funguje edit
+
+commit 1313944eccf104193962a5d00582877e65504b71
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sat May 5 00:06:50 2018 +0200
+
+    work hard
+
+commit 92269b64baed865fc28e96f6ddc734024f0ae59c
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Fri May 4 23:45:09 2018 +0200
+
+    IDE fix
+
+commit 03ac2f501beb518fd65f816e06721bd0fed54247
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Fri May 4 23:39:15 2018 +0200
+
+    fix
+
+commit fafc0d44cb10fd25beb49059778d7bbe428c2f29
+Merge: 5c59d70 b2926b3
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Fri May 4 23:31:36 2018 +0200
+
+    Merge pull request #2 from risokrizan/adova_branch
+    
+    merge
+
+commit b2926b3f814e3b5af054015f4ab8898dc33fefba
+Merge: 603a3d2 5c59d70
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Fri May 4 23:31:26 2018 +0200
+
+    Merge branch 'master' into adova_branch
+
+commit 5c59d70c62fbdfa6dd13313e6f03f74b9d57da96
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Fri May 4 23:29:21 2018 +0200
+
+    oprava SELCTOV
+
+commit 603a3d2291399a9caab292b6e0dbbbc0961cd237
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Fri May 4 23:29:17 2018 +0200
+
+    dads
+
+commit bb72801467928e906fef47c2811adaba265a9ac1
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Fri May 4 21:55:15 2018 +0200
+
+    zapis znamky2
+
+commit 0f75ac21d988d5e8a929eac49dc5e8cda5dc481e
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Fri May 4 21:54:48 2018 +0200
+
+    zapis znamky
+
+commit 76f1c7183bb07ee2e0106d572e41fc0d5fb12722
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Wed May 2 23:37:04 2018 +0200
+
+    ni neurobene
+
+commit 101ace11b58eb7bda5da348838528fda0a630be6
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Wed May 2 22:59:23 2018 +0200
+
+    name class a birth_date added to student
+
+commit 49276538ba4af5f04a31966704eadc8c7f5bf5fe
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Wed May 2 21:51:36 2018 +0200
+
+    exportovanie_db
+
+commit 89f5592706c8e75b14299805f14dc3404970a9d4
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Wed May 2 20:56:58 2018 +0200
+
+    a
+
+commit b426802a5af93c779a494c6a0cc82a462e903955
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Wed May 2 14:30:29 2018 +0200
+
+    volaco
+
+commit 70267c753a8b091ab1c2023ad2839fec6438d510
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Wed May 2 02:33:54 2018 +0200
+
+    frontend znamky
+
+commit 4adb18aff758cdd56cc0c157f24fa92632470100
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Wed May 2 00:28:37 2018 +0200
+
+    readme edit
+
+commit 8da84d4815f3c22da2db9bfa7044acd83464e040
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Wed May 2 00:26:44 2018 +0200
+
+    readme edit
+
+commit e62b614b87b54c68eb7250b950cf85cc0163f43b
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Wed May 2 00:25:26 2018 +0200
+
+    prelink na absencie
+
+commit 87d5b004b7a6a03dba607bbcf3f20035ce535e97
+Merge: 3647853 bfa354f
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Wed May 2 00:11:47 2018 +0200
+
+    Merge pull request #1 from risokrizan/absencie
+    
+    Absencie
+
+commit bfa354fcffc38b136531fdade927000b60c7fa23
+Merge: 18dca2a 3647853
+Author: Richard Križan <richard.krizan@outlook.com>
+Date:   Wed May 2 00:11:38 2018 +0200
+
+    Merge branch 'master' into absencie
+
+commit 18dca2ab0a479888d45ad318d54bfa9f0e4a2237
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Wed May 2 00:10:22 2018 +0200
+
+    Absencie
+
+commit 3647853e11bcb794b4c5e68713953f6df2353820
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Wed May 2 00:02:34 2018 +0200
+
+    frontend formov
+
+commit 73a2e6a775fefa5810dd8710d63066732548d6fa
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Tue May 1 23:28:57 2018 +0200
+
+    lol
+
+commit 985372483b0f7e4e63bee0792358cadbd8e890c6
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Tue May 1 15:20:55 2018 +0200
+
+    studnet a teacher logins
+
+commit 9897f763cf5a09fabf1d0d2c21c9de7f45f8268f
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Tue May 1 13:59:11 2018 +0200
+
+    ach jo
+
+commit 6bef5a1b5febdd3c164b96be92b076e02a1cd513
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Tue May 1 13:35:57 2018 +0200
+
+    gitignore
+
+commit dfe0e680522a2765da05c5c2dcee800939d0db85
+Author: Adrián Vyskoč <adrian.vyskoc@exponea.com>
+Date:   Tue May 1 00:21:01 2018 +0200
+
+    frontend update
+
+commit 96ad11d90cdd0ae57776bd92ac598591e62b77d6
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sun Apr 29 15:20:58 2018 +0200
+
+    Vypis znamok ide
+
+commit c1a35ae753329fa97900788a1de19196f2a8a3d3
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sat Apr 28 23:25:20 2018 +0200
+
+    pomalinky
+
+commit 06fa5e657e446bb60ce71b66d00e88a0691ffd14
+Author: RisoKrizan <richard.krizan@outlook.com>
+Date:   Sat Apr 28 21:24:37 2018 +0200
+
+    initial commit
